@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FerrugemJS game project</title>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+  </head>
+  <body>    
+    <div app="dist/find-me/main/main"></div>
+    <script>
+	     System.config({
+      		map:{
+      			"base_app":"./dist/find-me"
+      		}
+	     });
+      System.import("ferrugemjs");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<template name="thumbnailCard" args="$this">
+	<div each="thumbnail in $this.thumbnailsCard" 
+		class="img-card" 
+		style="{'background-image':'url('+thumbnail.url+')'}"
+		click.trigger="$this.changeCard($item)"
+	></div>
+</template>

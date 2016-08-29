@@ -1,0 +1,5 @@
+<template name="infoBar" args="$this">
+	<div each="play in $this.players" class="{'play-info '+(play.id===3?' pull-right':'')}" style="{'border-color':play.color}">
+		{play.points}
+	</div>
+</template>

@@ -1,0 +1,14 @@
+.thumbnail-card{
+	width:100%;
+	position:absolute;
+	left:0px;
+	bottom:4px;
+}
+
+.thumbnail-card .img-card{
+	width:15%;
+	margin-left:1.5%;
+	height:46px;
+	background-position: center center;
+	background-size: 100%;
+}
