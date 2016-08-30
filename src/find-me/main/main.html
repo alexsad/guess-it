@@ -1,8 +1,17 @@
 <template name="mainApp" args="$this">
 	<require from="base_app/info-bar/info-bar"></require>
+	
 	<require from="base_app/user-dash-board/user-dash-board"></require>
+	
 	<require from="base_app/thumbnail-card/thumbnail-card"></require>
+	
 	<info-bar></info-bar>
+	
+	
 	<user-dash-board></user-dash-board>
+	
+	
 	<thumbnail-card></thumbnail-card>
+	
+	<div style="display:none;position:absolute;bottom:10px;left:10px" click.trigger="$this.refresh()">teste!!!</div>
 </template>

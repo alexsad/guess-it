@@ -1,5 +1,5 @@
 <template name="thumbnailCard" args="$this">
-	<div each="thumbnail in $this.thumbnailsCard" 
+	<div each="thumbnail in $this.dashCardStore" 
 		class="img-card" 
 		style="{'background-image':'url('+thumbnail.url+')'}"
 		click.trigger="$this.changeCard($item)"

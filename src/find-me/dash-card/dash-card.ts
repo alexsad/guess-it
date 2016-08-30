@@ -7,7 +7,7 @@ export class DashCard implements IDashCard{
 	public url:string;
 	constructor(){
 		this.id = 0;
-		this.url = "";
+		this.url = "dist/find-me/dash-card/assets/img/card-1.jpg";
 		cardDispatch.changeCard.subscribe(({id,url})=>{
 			this.id = id;
 			this.url = url;
