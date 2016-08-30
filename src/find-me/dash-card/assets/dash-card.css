@@ -4,27 +4,26 @@
 }
 
 .dash-card .card-img{
-	width:96%;
-	margin-left:2%;
-	height:96%;
-	margin-top:2%;
-	background-position: center center;
+	width:90%;
+	margin-left:5%;
+	height:100%;
+	background-position: top center;
 	background-repeat: no-repeat;
 	/*background-size: 100%;*/
 }
 
 
 .dash-card .card-img .submit-card{
-	margin-top:10px;
-	margin-right:10px;
+	margin-top:5%;
+	margin-right:10%;
 	width:40px;
 	height:30px;
 	padding-top:10px;
 	border-radius:45%;
-	border:10px solid green;
+	border:10px solid #22aa99;
 	text-align: center;
 	font-size:18px;
 	font-weight: bolder;
-	color:green;
+	color:#22aa99;
 	float:right;
 }

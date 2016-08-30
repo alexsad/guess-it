@@ -6,8 +6,8 @@ export class DashCard implements IDashCard{
 	public id:number;
 	public url:string;
 	constructor(){
-		this.id = 0;
-		this.url = "dist/find-me/dash-card/assets/img/card-1.jpg";
+		this.id = -1;
+		this.url = "dist/find-me/dash-card/assets/img/default-card2.jpg";
 		cardDispatch.changeCard.subscribe(({id,url})=>{
 			this.id = id;
 			this.url = url;

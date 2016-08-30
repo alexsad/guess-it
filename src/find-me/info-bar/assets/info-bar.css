@@ -4,18 +4,19 @@
 	position:absolute;
 	top:0px;
 	left:0px;
+	background-color: rgba(0,0,0,0.5);
 }
 
 .info-bar .play-info{
 	margin:4px;
 	width:16px;
 	height:16px;
-	border: 5px solid #dddddd;
+	border:5px solid #dddddd;
 	border-radius: 45%;
 }
 
 .info-bar .play-info span{
-	margin-top:2px;
+	margin-top:1px;
 	width:16px;
 	text-align:center;
 	font-weight: bolder;

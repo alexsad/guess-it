@@ -2,13 +2,16 @@
 	width:100%;
 	position:absolute;
 	left:0px;
-	bottom:4px;
+	bottom:0px;
+	background-color: rgba(0,0,0,0.5);
 }
 
 .thumbnail-card .img-card{
 	width:15%;
 	margin-left:1.5%;
-	height:46px;
+	margin-top:5px;
+	height:40px;
 	background-position: center center;
 	background-size: 100%;
+	margin-bottom:3px;
 }

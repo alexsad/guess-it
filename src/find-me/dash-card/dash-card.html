@@ -3,6 +3,6 @@
 		class="card-img" 
 		data-id="{$this.url}" 
 		style="{'background-image':'url('+$this.url+')'}">
-		<div if="$this.url" click.trigger="$this.submitCard()" class="submit-card">OK</div>
+		<div if="$this.id > -1" click.trigger="$this.submitCard()" class="submit-card">OK</div>
 	</div>
 </template>
