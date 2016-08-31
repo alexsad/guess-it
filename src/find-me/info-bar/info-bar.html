@@ -1,7 +1,7 @@
 <template name="infoBar" args="$this">
-	<div each="play in $this.players" class="{'play-info '+(play.id===3?' pull-right':'')}" style="{'border-color':play.color}">
+	<div each="play in $this.players" title="{play.name}" class="{'play-info '+(play.id===3?' pull-right':'')}" style="{'border-color':play.color}">
 		<span>
-			{play.points}
-		</span>		
+			{play.score}
+		</span>
 	</div>
 </template>

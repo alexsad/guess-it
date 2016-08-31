@@ -1,5 +1,9 @@
+import {IDashCard} from "../dash-card/i-dash-card";
+
 export interface IPlayer {
 	id: number;
+	name:string;
 	color: string;
-	points: number;
+	score: number;
+	deck:IDashCard[];
 }

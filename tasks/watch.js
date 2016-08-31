@@ -8,11 +8,11 @@ gulp.task('static_serve', function() {
     port: 9000,
     livereload: true,
     middleware: function(connect, opt) {
-        var apiProxy = proxy('/rest', {
-            target: 'http://192.168.1.59:8330'
+        var apiProxy = proxy('/socket.io/', {
+            target: 'http://127.0.0.1:3000'
             ,changeOrigin: true
             ,pathRewrite: {
-                '^/rest' : '/rest'           
+                '^/socket.io/' : '/socket.io/'
             }
         });
         return [apiProxy];
