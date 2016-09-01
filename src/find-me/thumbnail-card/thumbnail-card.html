@@ -1,8 +1,8 @@
 <template name="thumbnailCard" args="$this">
 	<require from="./assets/thumbnail-card.css!"></require>
-	<div each="thumbnail in $this.dashCardStore"
+	<img each="thumbnail in $this.dashCardStore"
 		class="img-card"
-		style="{'background-image':'url('+(thumbnail.id < 9 ?thumbnail.url:'dist/find-me/dash-card/assets/img/card-1.jpg')+')'}"
+		src="{(thumbnail.id < 9 ?thumbnail.url:'dist/find-me/dash-card/assets/img/card-1.jpg')}"
 		click.trigger="$this.changeCard($item)"
-	></div>
+	>
 </template>

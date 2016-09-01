@@ -1,6 +1,6 @@
 .thumbnail-card{
 	width:100%;
-	position:absolute;
+	position:fixed;
 	left:0px;
 	bottom:0px;
 	background-color: rgba(0,0,0,0.5);
@@ -10,8 +10,8 @@
 	width:15%;
 	margin-left:1.5%;
 	margin-top:5px;
-	height:40px;
-	background-position: center center;
+	background-position: center bottom;
 	background-size: 100%;
 	margin-bottom:3px;
+	background-repeat: no-repeat;
 }

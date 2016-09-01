@@ -1,7 +1,5 @@
 .user-dash-board{
 	width:100%;
-	position:absolute;
-	top:40px;
-	left:0px;
-	bottom:55px;
+	height:430px;
+	margin-bottom:75px;
 }
