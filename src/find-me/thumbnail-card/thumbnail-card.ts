@@ -1,4 +1,3 @@
-import "./assets/thumbnail-card.css!";
 import {IDashCard} from "../dash-card/i-dash-card";
 import cardDispatch from "../dash-card/card-dispatch";
 import dashCardStore from "../dash-card/dash-card-store";

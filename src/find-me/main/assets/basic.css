@@ -20,6 +20,13 @@ body > div{
 	width: 100%;
 }
 
+body{
+	background-image: url("../../user-dash-board/assets/img/bg-green.jpg");
+	background-position:top center;
+	background-color:#0e0f07;
+	background-repeat:repeat-x;
+} 
+
 .pull-left{
 	float:left;
 }

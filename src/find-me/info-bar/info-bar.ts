@@ -1,4 +1,3 @@
-import "./assets/info-bar.css!";
 import playerStore from "../player/player-store";
 import {IPlayer} from "../player/i-player";
 

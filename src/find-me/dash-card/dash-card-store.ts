@@ -7,8 +7,8 @@ class DashCardStore {
 	private dashCards: IDashCard[];
 	constructor() {
 		this.dashCards = [];
-		/*
-		//setTimeout(() => {
+		
+		setTimeout(() => {
 			this.dashCards = [
 				{ id: 1, url: "dist/find-me/dash-card/assets/img/card-1.jpg" }
 				, { id: 2, url: "dist/find-me/dash-card/assets/img/card-2.jpg" }
@@ -18,8 +18,8 @@ class DashCardStore {
 				, { id: 6, url: "dist/find-me/dash-card/assets/img/card-6.jpg" }
 			];
 			this.onChange.emit(null);
-		//}, 2000);
-		*/
+		}, 2000);
+		
 	}
 	get(): IDashCard[] {
 		return this.dashCards;
