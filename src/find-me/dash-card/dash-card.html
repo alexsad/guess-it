@@ -3,7 +3,7 @@
 	<div 
 		class="card-img" 
 		data-id="{$this.url}" 
-		style="{'background-image':'url('+$this.url+')'}">
+		style="{'background-image':'url('+($this.id < 9?$this.url:'dist/find-me/dash-card/assets/img/default-card2.jpg')+')'}">
 		<div if="$this.allowSubmit && $this.id > -1" click.trigger="$this.submitCard()" class="submit-card">OK</div>
 	</div>
 </template>

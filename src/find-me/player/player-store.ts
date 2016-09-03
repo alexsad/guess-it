@@ -21,7 +21,7 @@ class PlayerStore {
 			this.onChange.emit(null);
 		},2000);
 		*/		
-		socket.emit('join', 'Guabiraba-'+this.getPlayerName());
+		socket.emit('join', 'player-'+this.getPlayerName());
 			
 		socket.on('update-all',(players:IPlayer[])=>{
 			this.players = players;
