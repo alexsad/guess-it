@@ -23,26 +23,20 @@ class DashCardStore {
 		}, 2000);
 		*/
 
-		socket.on('update',(player:IPlayer)=>{
-			//this.players = players;
-			this.dashCards = player.deck;
-			//console.log(player);
-			this.onChange.emit(null);
-			//dashCardStore.set(players[0].deck);
-		});
+		socket.on('update',(player:IPlayer)=>this.set(player.deck));
 
 
-		socket.on('allow-pick-bet',(bets:IDashCard[]) => {
-	       this.dashCards = bets
-	       this.onChange.emit(null);
-      	});
+		socket.on('allow-pick-bet',(bets:IDashCard[]) => this.set(this.dashCards));
 		
 	}
 	get(): IDashCard[] {
 		return this.dashCards;
 	}
 	set(cards:IDashCard[]):void{
-		this.dashCards = cards;
+		console.log(cards);
+		this.dashCards = cards.filter((card)=>{
+			return (card && card.id!==null);
+		});
 		this.onChange.emit(null);
 	}
 }

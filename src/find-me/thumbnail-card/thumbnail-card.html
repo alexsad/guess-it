@@ -2,7 +2,7 @@
 	<require from="./assets/thumbnail-card.css!"></require>
 	<img each="thumbnail in $this.dashCardStore"
 		class="img-card"
-		src="{(thumbnail.id < 9 ?thumbnail.url:'dist/find-me/dash-card/assets/img/default-card2.jpg')}"
+		src="{thumbnail.url}"
 		click.trigger="$this.changeCard($item)"
 	>
 </template>

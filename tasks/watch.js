@@ -15,7 +15,14 @@ gulp.task('static_serve', function() {
                 '^/socket.io/' : '/socket.io/'
             }
         });
-        return [apiProxy];
+        var resourcesProxy = proxy('/cards/', {
+            target: 'http://127.0.0.1:3000'
+            ,changeOrigin: true
+            ,pathRewrite: {
+                '^/cards/' : '/cards/'
+            }
+        });
+        return [apiProxy,resourcesProxy];
     }
   });
 });

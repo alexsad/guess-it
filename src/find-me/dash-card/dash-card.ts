@@ -9,7 +9,7 @@ export class DashCard implements IDashCard{
 	private actionSubmit:string;	
 	constructor(){
 		this.id = -1;
-		this.url = "dist/find-me/dash-card/assets/img/default-card2.jpg";
+		this.url = "cards/default-card.jpg";
 		
 		
 		cardDispatch.changeCard.subscribe(({id,url})=>{

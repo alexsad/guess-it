@@ -1,10 +1,13 @@
 <template name="mainApp" args="$this">
 	<require from="./assets/basic.css!"></require>
+	<require from="../user-dash-board/assets/user-dash-board.css!"></require>
 	<require from="../info-bar/info-bar"></require>
-	<require from="../user-dash-board/user-dash-board"></require>
+	<require from="../dash-card/dash-card"></require>
 	<require from="../thumbnail-card/thumbnail-card"></require>	
 	<info-bar></info-bar>
-	<user-dash-board></user-dash-board>
+	<div class="user-dash-board">
+		<dash-card></dash-card>
+	</div>	
 	<thumbnail-card></thumbnail-card>
 	<div style="display:none;background-color:blue;position:absolute;bottom:10px;left:10px" click.trigger="$this.refresh()">teste!!!</div>
 </template>
