@@ -1,5 +1,7 @@
 import {EventEmitter} from "event-emitter-lite";
 import {IDashCard} from "./i-dash-card";
+import socket from "../web-socket/web-socket";
+import {IPlayer} from "../player/i-player";
 
 
 class DashCardStore {
@@ -7,7 +9,7 @@ class DashCardStore {
 	private dashCards: IDashCard[];
 	constructor() {
 		this.dashCards = [];
-		
+		/*
 		setTimeout(() => {
 			this.dashCards = [
 				{ id: 1, url: "dist/find-me/dash-card/assets/img/card-1.jpg" }
@@ -19,6 +21,21 @@ class DashCardStore {
 			];
 			this.onChange.emit(null);
 		}, 2000);
+		*/
+
+		socket.on('update',(player:IPlayer)=>{
+			//this.players = players;
+			this.dashCards = player.deck;
+			//console.log(player);
+			this.onChange.emit(null);
+			//dashCardStore.set(players[0].deck);
+		});
+
+
+		socket.on('allow-pick-bet',(bets:IDashCard[]) => {
+	       this.dashCards = bets
+	       this.onChange.emit(null);
+      	});
 		
 	}
 	get(): IDashCard[] {

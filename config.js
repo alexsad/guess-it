@@ -51,7 +51,7 @@ System.config({
     "npm:es6-shim@0.35.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:ferrugemjs@0.9.1": {
+    "npm:ferrugemjs@0.9.2": {
       "css": "github:systemjs/plugin-css@0.1.27",
       "incremental-dom": "npm:incremental-dom@0.4.1"
     },

@@ -2,17 +2,14 @@ import {EventEmitter} from "event-emitter-lite";
 import {IDashCard} from "../dash-card/i-dash-card";
 import {IPlayer} from "./i-player";
 import dashCardStore from "../dash-card/dash-card-store";
-
-declare var io:any;
+import socket from "../web-socket/web-socket";
 
 class PlayerStore {
 	onChange: EventEmitter<any> = new EventEmitter();
 	private players: IPlayer[];
 	constructor(){
-		//var socket = io();
-
 		this.players = [];
-		
+		/*
 		setTimeout(()=>{
 			this.players = [
 				{ id: 1,name:'',deck:[], color: "#ff0000", score: 10 }
@@ -23,20 +20,29 @@ class PlayerStore {
 			];
 			this.onChange.emit(null);
 		},2000);
-		
-		//socket.emit('join', 'Guabiraba');
-		/*
-		socket.on('update-players',(players:IPlayer[])=>{
+		*/		
+		socket.emit('join', 'Guabiraba-'+this.getPlayerName());
+			
+		socket.on('update-all',(players:IPlayer[])=>{
 			this.players = players;
 			console.log(players);
 			this.onChange.emit(null);
-			dashCardStore.set(players[0].deck);
+			//dashCardStore.set(players[0].deck);
 		});
-		*/
+
+		
 
 	}
 	get():IPlayer[]{
 		return this.players;
+	}
+	private getPlayerName():string{
+	  let param:string = 'name';
+      let url = location.href;
+      var regexS = "[\\?&]"+param+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( url );
+      return results == null ? null : results[1];    
 	}
 }
 

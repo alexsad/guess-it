@@ -25,8 +25,7 @@
       "systemjs/systemjs": "github:systemjs/systemjs@^0.19.37",
       "ts-helpers": "npm:ts-helpers@^1.1.1"
     },
-    "devDependencies": {},
-    "overrides": {}
+    "devDependencies": {}
   },
   "devDependencies": {
     "gulp": "^3.9.1",
