@@ -1,19 +1,18 @@
 .dash-card{
 	width:100%;
-	height: 100%;
+	height:600px;
 }
 
 .dash-card .card-img{
 	width:90%;
 	margin-left:5%;
-	height:100%;
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: 100%;
+	/*height:100%;*/
 }
 
 
-.dash-card .card-img .submit-card{
+.dash-card .submit-card{
+	position:absolute;
+	right:0px;
 	margin-top:5%;
 	margin-right:10%;
 	width:40px;
