@@ -7,11 +7,10 @@ export class DashCard implements IDashCard{
 	public url:string;
 	private allowSubmit:boolean;
 	private actionSubmit:string;	
+
 	constructor(){
-		this.id = -1;
-		this.url = "cards/default-card.jpg";
-		
-		
+		this.resetDefaults();
+
 		cardDispatch.changeCard.subscribe(({id,url})=>{
 			this.id = id;
 			this.url = url;
@@ -30,6 +29,10 @@ export class DashCard implements IDashCard{
 			(<any>this).refresh();
 		});
 	}
+	private resetDefaults():void{
+		this.id = -1;
+		this.url = "cards/default-card.jpg";
+	}
 	private submitCard():void{
 		if(this.actionSubmit==="pick-card"){
 			cardDispatch.pickCard.emit({
@@ -40,6 +43,7 @@ export class DashCard implements IDashCard{
 
 		socket.emit(this.actionSubmit,this.id);
 		this.allowSubmit=false;
+		this.resetDefaults();
 		(<any>this).refresh();
 	}
 }

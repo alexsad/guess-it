@@ -24,16 +24,12 @@ class DashCardStore {
 		*/
 
 		socket.on('update',(player:IPlayer)=>this.set(player.deck));
-
-
-		socket.on('allow-pick-bet',(bets:IDashCard[]) => this.set(this.dashCards));
-		
+		socket.on('allow-pick-bet',(bets:IDashCard[]) =>this.set(bets));		
 	}
 	get(): IDashCard[] {
 		return this.dashCards;
 	}
 	set(cards:IDashCard[]):void{
-		console.log(cards);
 		this.dashCards = cards.filter((card)=>{
 			return (card && card.id!==null);
 		});
