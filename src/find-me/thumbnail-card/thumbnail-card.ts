@@ -15,7 +15,7 @@ export class ThumbnailCard{
 	}
 	private changeCard(indx:number):void{
 		//console.log(this.thumbnailsCard[indx]);
-		cardDispatch.changeCard.emit(this.get()[indx]);
+		cardDispatch.changeCard.emit(this.dashCardStore[indx]);
 	}
 	get dashCardStore(): IDashCard[] {
 		return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);
