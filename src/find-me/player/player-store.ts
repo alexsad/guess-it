@@ -21,6 +21,8 @@ class PlayerStore {
 			this.onChange.emit(null);
 		},2000);
 		*/		
+
+
 		socket.emit('join', 'player-'+this.getPlayerName());
 			
 		socket.on('update-all',(players:IPlayer[])=>{
@@ -37,12 +39,18 @@ class PlayerStore {
 		return this.players;
 	}
 	private getPlayerName():string{
+ 
+ 	  var playerName = prompt('digite seu nome!','');
+ 	  /*
 	  let param:string = 'name';
       let url = location.href;
       var regexS = "[\\?&]"+param+"=([^&#]*)";
       var regex = new RegExp( regexS );
       var results = regex.exec( url );
-      return results == null ? null : results[1];    
+      return results == null ? null : results[1];  
+	  */
+
+      return new Date().getHours()+'-'+playerName;  
 	}
 }
 
