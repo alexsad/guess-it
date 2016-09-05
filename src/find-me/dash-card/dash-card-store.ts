@@ -2,7 +2,7 @@ import {EventEmitter} from "event-emitter-lite";
 import {IDashCard} from "./i-dash-card";
 import socket from "../web-socket/web-socket";
 import {IPlayer} from "../player/i-player";
-
+import playerDispatch from "../player/player-dispatch";
 
 class DashCardStore {
 	onChange: EventEmitter<any> = new EventEmitter();
@@ -23,7 +23,11 @@ class DashCardStore {
 		}, 2000);
 		*/
 
-		socket.on('update',(player:IPlayer)=>this.set(player.deck));
+		socket.on('update',(player:IPlayer)=>{
+			this.set(player.deck);
+			playerDispatch.playerChange.emit(player);
+			console.log(player)
+		});
 		socket.on('allow-pick-bet',(bets:IDashCard[]) =>this.set(bets));		
 	}
 	get(): IDashCard[] {
