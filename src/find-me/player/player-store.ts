@@ -27,7 +27,7 @@ class PlayerStore {
 			
 		socket.on('update-all',(players:IPlayer[])=>{
 			this.players = players;
-			console.log(players);
+			//console.log(players);
 			this.onChange.emit(null);
 			//dashCardStore.set(players[0].deck);
 		});

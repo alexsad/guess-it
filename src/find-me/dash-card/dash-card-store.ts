@@ -26,7 +26,7 @@ class DashCardStore {
 		socket.on('update',(player:IPlayer)=>{
 			this.set(player.deck);
 			playerDispatch.playerChange.emit(player);
-			console.log(player)
+			//console.log(player)
 		});
 		socket.on('allow-pick-bet',(bets:IDashCard[]) =>this.set(bets));		
 	}

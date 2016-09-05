@@ -13,9 +13,19 @@ export class ThumbnailCard{
 			this.lastPickedCard = id;
 		});
 	}
-	private changeCard(indx:number):void{
+	private changeCard(p_id:number):void{
 		//console.log(this.thumbnailsCard[indx]);
-		cardDispatch.changeCard.emit(this.dashCardStore[indx]);
+		let indxcard:number = 0;
+
+		this.dashCardStore.every((card,indx)=>{
+			if(card.id===p_id){
+				indxcard = indx;
+				return false;
+			}
+			return true;
+		});
+
+		cardDispatch.changeCard.emit(this.dashCardStore[indxcard]);
 	}
 	get dashCardStore(): IDashCard[] {
 		return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);

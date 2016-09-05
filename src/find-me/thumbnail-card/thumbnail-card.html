@@ -3,6 +3,6 @@
 	<img each="thumbnail in $this.dashCardStore"
 		class="{'img-card'}"
 		src="{thumbnail.url}"
-		click.trigger="$this.changeCard($item)"
+		click.trigger="$this.changeCard(thumbnail.id)"
 	>
 </template>
