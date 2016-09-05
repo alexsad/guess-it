@@ -12,12 +12,12 @@ class DashCardStore {
 		/*
 		setTimeout(() => {
 			this.dashCards = [
-				{ id: 1, url: "dist/find-me/dash-card/assets/img/card-1.jpg" }
-				, { id: 2, url: "dist/find-me/dash-card/assets/img/card-2.jpg" }
-				, { id: 3, url: "dist/find-me/dash-card/assets/img/card-3.jpg" }
-				, { id: 4, url: "dist/find-me/dash-card/assets/img/card-4.jpg" }
-				, { id: 5, url: "dist/find-me/dash-card/assets/img/card-5.jpg" }
-				, { id: 6, url: "dist/find-me/dash-card/assets/img/card-6.jpg" }
+				{ id: 1, url: "cards/card-1.jpg" }
+				, { id: 2, url: "cards/card-2.jpg" }
+				, { id: 3, url: "cards/card-3.jpg" }
+				, { id: 4, url: "cards/card-4.jpg" }
+				, { id: 5, url: "cards/card-5.jpg" }
+				, { id: 6, url: "cards/card-6.jpg" }
 			];
 			this.onChange.emit(null);
 		}, 2000);

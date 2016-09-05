@@ -9,14 +9,14 @@ gulp.task('static_serve', function() {
     livereload: true,
     middleware: function(connect, opt) {
         var apiProxy = proxy('/socket.io/', {
-            target: 'http://127.0.0.1:3000'
+            target: 'http://mvbrrecdsk3206:3000'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/socket.io/' : '/socket.io/'
             }
         });
         var resourcesProxy = proxy('/cards/', {
-            target: 'http://127.0.0.1:3000'
+            target: 'http://mvbrrecdsk3206:3000'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/cards/' : '/cards/'

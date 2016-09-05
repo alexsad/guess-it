@@ -18,6 +18,7 @@ export class ThumbnailCard{
 		cardDispatch.changeCard.emit(dashCardStore.get()[indx]);
 	}
 	get dashCardStore(): IDashCard[] {
-		return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);
+		//return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);
+		return dashCardStore.get();
 	}
 }

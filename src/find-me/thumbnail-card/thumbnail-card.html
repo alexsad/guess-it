@@ -1,7 +1,7 @@
 <template name="thumbnailCard" args="$this">
 	<require from="./assets/thumbnail-card.css!"></require>
 	<img each="thumbnail in $this.dashCardStore"
-		class="img-card"
+		class="{'img-card'}"
 		src="{thumbnail.url}"
 		click.trigger="$this.changeCard($item)"
 	>
