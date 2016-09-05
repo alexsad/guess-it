@@ -15,10 +15,10 @@ export class ThumbnailCard{
 	}
 	private changeCard(indx:number):void{
 		//console.log(this.thumbnailsCard[indx]);
-		cardDispatch.changeCard.emit(dashCardStore.get()[indx]);
+		cardDispatch.changeCard.emit(this.get()[indx]);
 	}
 	get dashCardStore(): IDashCard[] {
-		//return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);
-		return dashCardStore.get();
+		return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);
+		//return dashCardStore.get();
 	}
 }
