@@ -7,49 +7,37 @@
 .dash-card .card-img{
 	width:90%;
 	margin-left:5%;
-	border:4px solid #312f25;
 	border-radius:4px;
 }
 
 
 .dash-card .submit-card{
-	position:absolute;
+	float:right;
 	right:0px;
-	margin-top:5%;
-	margin-right:10%;
+	margin-right:15px;
+	margin-top:12px;
+	margin-bottom:15px;
 	width:60px;
-	height:40px;
-	padding-top:20px;
+	height:42px;
+	padding-top:17px;
 	text-align: center;
 	font-size:18px;
 	font-weight: bolder;
-	border-radius:30%;
-
-	border:1px solid #222222;
-	background-color: #E6B783;
-
-
-	-webkit-box-shadow: inset 0px 1px 8px 3px #000000;
-	-moz-box-shadow: inset 0px 1px 8px 3px #000000;
-	box-shadow: inset 0px 1px 8px 3px #000000;
+	border-radius:10%;
+	color:#ffffff;
+	background-color: #128A7A;
 }
 
 
 .turn-indication{
-	width:50%;
-	height:25px;
-	margin-bottom:4px;
-	text-align: center;
+	margin-left:26px;
+	margin-top:30px; 
 	font-size: 18px;
-	font-weight: bolder;
-	margin:0px auto;
-	float: none;
-	margin-bottom:4px;
-	padding-top: 5px;
+	font-weight: bold;
+	margin-bottom:30px;
 }
 
 .turn-indication.is-loading{
-	color:#c79d6d;
 	/*
 	-webkit-box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
 	-moz-box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);

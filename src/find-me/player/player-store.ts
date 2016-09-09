@@ -43,7 +43,7 @@ class PlayerStore {
 	  let playerName = Cookies.get('player-name');
 	  if(!playerName){
 	  	playerName = prompt('digite seu nome!','');
-	  	playerName=playerName+'-'+new Date().getTime();
+	  	//playerName=playerName+'-'+new Date().getTime();
 	  	Cookies.set('player-name',playerName);
 	  }	  
       return playerName;

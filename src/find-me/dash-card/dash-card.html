@@ -1,11 +1,12 @@
 <template name="dashCard" args="$this">
 	<require from="./assets/dash-card.css!"></require>
-	<div class="{'turn-indication'+($this.allowSubmit?'':' is-loading')}">{($this.allowSubmit?'SUA VEZ!':'AGUARDE...')}</div>
+	<div class="{'turn-indication'+($this.allowSubmit?'':' is-loading')}">{($this.allowSubmit?'':'Aguarde a dica!')}</div>
+	<div if="$this.allowSubmit" click.trigger="$this.submitCard()" class="submit-card">jogar</div>
 	<img 
 		class="{'card-img'}" 
 		data-id="{$this.id}" 
 		src="{$this.url}"
 	>
-	<div if="$this.allowSubmit && $this.id > -1" click.trigger="$this.submitCard()" class="submit-card">OK</div>
+
 
 </template>

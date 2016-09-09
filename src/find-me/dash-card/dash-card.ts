@@ -36,16 +36,17 @@ export class DashCard implements IDashCard{
 		this.url = "cards/default-card.jpg";
 	}
 	private submitCard():void{
-		if(this.actionSubmit==="pick-card"){
-			cardDispatch.pickCard.emit({
-				id:this.id
-				,url:this.url
-			});
+		if(this.id > -1){
+			if(this.actionSubmit==="pick-card"){
+				cardDispatch.pickCard.emit({
+					id:this.id
+					,url:this.url
+				});
+			}
+			socket.emit(this.actionSubmit,this.id);
+			this.allowSubmit=false;
+			this.resetDefaults();
+			(<any>this).refresh();
 		}
-
-		socket.emit(this.actionSubmit,this.id);
-		this.allowSubmit=false;
-		this.resetDefaults();
-		(<any>this).refresh();
 	}
 }

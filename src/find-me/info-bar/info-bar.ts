@@ -16,4 +16,15 @@ export class InfoBar{
 	get players(): IPlayer[] {
 		return playerStore.get();
 	}
+	getPlayerScore():number{
+		let playerScore:number = 0;
+		this.players.every((player)=>{
+			if(player.id===this.idPlayerLogged){
+				playerScore = player.score;
+				return false;
+			}
+			return true;
+		});
+		return playerScore;
+	}
 }
