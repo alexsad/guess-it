@@ -1,6 +1,6 @@
 <template name="dashCard" args="$this">
 	<require from="./assets/dash-card.css!"></require>
-	<div if="$this.allowSubmit" class="turn-indication">Sua vez!</div>
+	<div class="{'turn-indication'+($this.allowSubmit?'':' is-loading')}">{($this.allowSubmit?'SUA VEZ!':'AGUARDE')}</div>
 	<img 
 		class="{'card-img'}" 
 		data-id="{$this.id}" 

@@ -38,22 +38,28 @@
 
 .turn-indication{
 	width:50%;
-	height:30px;
+	height:25px;
 	background-color: #E6B783;
 	margin-bottom:4px;
 	text-align: center;
-	font-size: 25px;
+	font-size: 18px;
 	color:#605526;
 	font-weight: bolder;
 	margin:0px auto;
 	float: none;
 	margin-bottom:4px;
-
+	padding-top: 5px;
 	border:1px solid #090908;
 	border-radius:4px;
 	font-family: comic;
 
-		-webkit-box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
+	-webkit-box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
 	-moz-box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
 	box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
+}
+
+.turn-indication.is-loading{
+-webkit-box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
+-moz-box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
+box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
 }
