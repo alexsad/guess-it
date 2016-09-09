@@ -1,8 +1,9 @@
 .info-bar{
-	width:100%;
+	width:98%;
 	height:35px;
-	background-color: rgba(0,0,0,0.5);
+	margin-left:1%;
 	margin-bottom:4px;
+	border-bottom:2px solid #312f25;
 }
 
 .info-bar .play-info{
