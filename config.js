@@ -13,6 +13,7 @@ System.config({
     "event-emitter-lite": "npm:event-emitter-lite@1.0.5",
     "ferrugemjs": "npm:ferrugemjs@0.9.6",
     "incremental-dom": "npm:incremental-dom@0.4.1",
+    "js-cookie": "npm:js-cookie@2.1.3",
     "promised-xhr": "npm:promised-xhr@1.2.0",
     "systemjs/systemjs": "github:systemjs/systemjs@0.19.37",
     "ts-helpers": "npm:ts-helpers@1.1.1",
@@ -26,7 +27,10 @@ System.config({
       "os-browserify": "npm:os-browserify@0.1.2"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.7"
+      "process": "npm:process@0.11.9"
+    },
+    "github:jspm/nodelibs-url@0.1.0": {
+      "url": "npm:url@0.10.3"
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
@@ -58,16 +62,23 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:js-cookie@2.1.3": {
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "url": "github:jspm/nodelibs-url@0.1.0"
+    },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
     },
-    "npm:process@0.11.7": {
+    "npm:process@0.11.9": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
     "npm:promised-xhr@1.2.0": {
       "rsvp": "npm:rsvp@3.0.9"
+    },
+    "npm:punycode@1.3.2": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:rsvp@3.0.9": {
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -77,6 +88,12 @@ System.config({
     },
     "npm:typescript@1.8.10": {
       "os": "github:jspm/nodelibs-os@0.1.0"
+    },
+    "npm:url@0.10.3": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "punycode": "npm:punycode@1.3.2",
+      "querystring": "npm:querystring@0.2.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",

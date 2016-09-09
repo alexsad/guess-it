@@ -3,6 +3,7 @@ import {IDashCard} from "../dash-card/i-dash-card";
 import {IPlayer} from "./i-player";
 import dashCardStore from "../dash-card/dash-card-store";
 import socket from "../web-socket/web-socket";
+import Cookies = require('js-cookie');
 
 class PlayerStore {
 	onChange: EventEmitter<any> = new EventEmitter();
@@ -23,7 +24,7 @@ class PlayerStore {
 		*/		
 
 
-		socket.emit('join', 'player-'+this.getPlayerName());
+		socket.emit('join', this.getPlayerName());
 			
 		socket.on('update-all',(players:IPlayer[])=>{
 			this.players = players;
@@ -39,18 +40,13 @@ class PlayerStore {
 		return this.players;
 	}
 	private getPlayerName():string{
- 
- 	  var playerName = prompt('digite seu nome!','');
- 	  /*
-	  let param:string = 'name';
-      let url = location.href;
-      var regexS = "[\\?&]"+param+"=([^&#]*)";
-      var regex = new RegExp( regexS );
-      var results = regex.exec( url );
-      return results == null ? null : results[1];  
-	  */
-
-      return new Date().getHours()+'-'+playerName;  
+	  let playerName = Cookies.get('player-name');
+	  if(!playerName){
+	  	playerName = prompt('digite seu nome!','');
+	  	playerName=playerName+'-'+new Date().getTime();
+	  	Cookies.set('player-name',playerName);
+	  }	  
+      return playerName;
 	}
 }
 

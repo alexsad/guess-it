@@ -1,12 +1,14 @@
 .dash-card{
 	width:100%;
-	height:600px;
+	height:700px;
+	margin-bottom:20px;
 }
 
 .dash-card .card-img{
 	width:90%;
 	margin-left:5%;
-	/*height:100%;*/
+	border:4px solid #605526;
+	border-radius:4px;
 }
 
 
@@ -15,14 +17,43 @@
 	right:0px;
 	margin-top:5%;
 	margin-right:10%;
-	width:40px;
-	height:30px;
-	padding-top:10px;
-	border-radius:45%;
-	border:10px solid #0200a9;
+	width:60px;
+	height:40px;
+	padding-top:20px;
 	text-align: center;
 	font-size:18px;
 	font-weight: bolder;
-	color:#0200a9;
-	float:right;
+	color:#605526;
+	border-radius:50%;
+
+	border:1px solid #222222;
+	background-color: #E6B783;
+
+
+	-webkit-box-shadow: inset 0px 1px 8px 3px #000000;
+	-moz-box-shadow: inset 0px 1px 8px 3px #000000;
+	box-shadow: inset 0px 1px 8px 3px #000000;
+}
+
+
+.turn-indication{
+	width:50%;
+	height:30px;
+	background-color: #E6B783;
+	margin-bottom:4px;
+	text-align: center;
+	font-size: 25px;
+	color:#605526;
+	font-weight: bolder;
+	margin:0px auto;
+	float: none;
+	margin-bottom:4px;
+
+	border:1px solid #090908;
+	border-radius:4px;
+	font-family: comic;
+
+		-webkit-box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
+	-moz-box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
+	box-shadow: inset 0px 1px 8px 3px rgba(84,225,247,1);
 }

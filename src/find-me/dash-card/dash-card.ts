@@ -20,12 +20,14 @@ export class DashCard implements IDashCard{
 		socket.on('allow-pick-card',()=>{
 			this.allowSubmit=true;
 			this.actionSubmit='pick-card';
+			this.resetDefaults();
 			(<any>this).refresh();
 		});
 
 		socket.on('allow-pick-bet',()=>{
 			this.allowSubmit=true;
 			this.actionSubmit='pick-bet';
+			this.resetDefaults();
 			(<any>this).refresh();
 		});
 	}
