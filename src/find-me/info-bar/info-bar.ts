@@ -16,15 +16,26 @@ export class InfoBar{
 	get players(): IPlayer[] {
 		return playerStore.get();
 	}
-	getPlayerScore():number{
-		let playerScore:number = 0;
-		this.players.every((player)=>{
+	get player():IPlayer{
+		let playerIndx:number = -1;
+		this.players.every((player,indx)=>{
 			if(player.id===this.idPlayerLogged){
-				playerScore = player.score;
+				playerIndx = indx;
 				return false;
 			}
 			return true;
 		});
-		return playerScore;
+		if(playerIndx < 0){
+			return {id:0,deck:[],name:"",score:0,color:"#FFFFFF"};
+		}
+		return this.players[playerIndx];
+	}
+	changePlayerName(name:string):void{
+		if(name){
+			let tmpplayer:IPlayer = this.player;
+			tmpplayer.name = name;
+			playerStore.changePlayer(tmpplayer);
+		}
+		(<any>this).refresh();
 	}
 }

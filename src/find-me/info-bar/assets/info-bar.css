@@ -43,7 +43,7 @@
 
 
 
-.info-bar .players-list{
+.info-bar .popup-options{
 	position:absolute;
 	top:80px;
 	right:10px;
@@ -81,4 +81,41 @@
 	bottom:0px;
 	position: fixed;
 	background-color: rgba(255,255,255,0.7);
+}
+
+.info-bar .config-popup{
+	width:300px;
+}
+.info-bar .config-popup i{
+	font-size:28px;
+	margin:4px;
+}
+.info-bar .config-popup label{
+	font-size:28px;
+
+}
+.info-bar .config-popup input{
+	width:96%;
+	margin-left:2%;
+	height:35px;
+	border:1px solid #128A7A;
+	border-radius:4px;
+	color:#128A7A;
+	font-size:28px;
+
+}
+.info-bar .config-popup button{
+	height:35px;
+	width:60px;
+	border:1px solid #128A7A;
+	border-radius:4px;
+	color:#FFFFFF;
+	background-color:#128A7A;
+	float:right;
+	margin-right:2%;
+	margin-top:10px;
+}
+
+.info-bar .config-popup{
+	
 }

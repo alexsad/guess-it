@@ -48,6 +48,9 @@ class PlayerStore {
 	  }	  
       return playerName;
 	}
+	public changePlayer(player:IPlayer):void{
+		Cookies.set('player-name',player.name);
+	}
 }
 
 export default new PlayerStore();

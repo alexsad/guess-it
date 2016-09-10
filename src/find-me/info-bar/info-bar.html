@@ -1,6 +1,16 @@
 <template name="infoBar" args="$this">
 	<require from="./assets/info-bar.css!"></require>
-	<div if="$this.$showPlayers" class="players-list">
+	<if condition="$this.$showConfigPlayer">
+		<div class="popup-options config-popup">
+			<i class="icon-rat" style="{'color':$this.player.color}"></i>
+			<label>Novo nome:</label>
+			<input type="text" placeholder="Mudar Nome do Player" value="{$this.player.name}" change.trigger="$this.$tmpPlayerName=$event.target.value">
+			<span style="font-style:italic;margin:4px;">*valido para a proxima partida</span>
+			<button click.trigger="$this.$showConfigPlayer=false;$this.changePlayerName($this.$tmpPlayerName)">OK</button>	
+		</div>
+	</if>
+
+	<div if="$this.$showPlayers" class="players-list popup-options">
 		<div 
 			each="play in $this.players" 
 			title="{play.name}" 
@@ -17,7 +27,7 @@
 		<i class="icon-users-group btn-show-players"></i>
 		<div class="players-count">{$this.players.length}</div>
 	</div>
-	<i class="icon-rat player-score-thumbnail"></i>
-	<div class="players-count">{$this.getPlayerScore()}</div>
-	<div if="$this.$showPlayers" click.trigger="$this.$showPlayers=false;$this.refresh()" class="block-content-info"></div>
+	<i class="icon-rat player-score-thumbnail" click.trigger="$this.$showConfigPlayer=!$this.$showConfigPlayer;$this.refresh()"></i>
+	<div class="players-count">{$this.player.score}</div>
+	<div if="$this.$showPlayers||$this.$showConfigPlayer" click.trigger="$this.$showPlayers=false;$this.$showConfigPlayer=false;$this.refresh()" class="block-content-info"></div>
 </template>
