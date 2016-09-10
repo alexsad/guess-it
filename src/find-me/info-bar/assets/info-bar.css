@@ -54,6 +54,10 @@
 	padding-top:20px;
 	z-index:40;
 }
+.info-bar .popup-options h1,.info-bar .popup-options h2{
+	width: 100%;
+	text-align: center;
+}
 .info-bar .players-list .play-info{
 	margin:4px;
 	font-size: 15px;

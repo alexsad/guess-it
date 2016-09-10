@@ -4,12 +4,17 @@ import playerDispatch from "../player/player-dispatch";
 
 export class InfoBar{
 	private idPlayerLogged:number=-1;
+	private playerWinner:IPlayer;
 	constructor(){
 		playerStore.onChange.subscribe(()=>{
 			(<any>this).refresh();
 		});
 		playerDispatch.playerChange.subscribe((player)=>{
 			this.idPlayerLogged = player.id;
+			(<any>this).refresh();
+		});
+		playerDispatch.playerWinner.subscribe((playerWinner)=>{
+			this.playerWinner = playerWinner;
 			(<any>this).refresh();
 		});
 	}

@@ -5,12 +5,19 @@
 			<i class="icon-rat" style="{'color':$this.player.color}"></i>
 			<label>Novo nome:</label>
 			<input type="text" placeholder="Mudar Nome do Player" value="{$this.player.name}" change.trigger="$this.$tmpPlayerName=$event.target.value">
-			<span style="font-style:italic;margin:4px;">*valido para a proxima partida</span>
+			<span style="font-style:italic;margin:4px;">*válido para a próxima partida</span>
 			<button click.trigger="$this.$showConfigPlayer=false;$this.changePlayerName($this.$tmpPlayerName)">OK</button>	
 		</div>
 	</if>
 
-	<div if="$this.$showPlayers" class="players-list popup-options">
+	<div if="$this.$showPlayers||$this.playerWinner" class="players-list popup-options">
+		<if condition="$this.playerWinner">
+			<h1>Fim de Jogo!</h1>			
+			<h2 style="float: none;">
+				<span style="margin-top: 8px; margin-left: 20px;">O vencedor é {$this.playerWinner.name}</span>
+				<i class="icon-rat player-score-thumbnail" style="{'color':$this.playerWinner.color,float: 'left', marginTop:'0px'}"></i>
+			</h2>
+		</if>
 		<div 
 			each="play in $this.players" 
 			title="{play.name}" 
@@ -29,5 +36,5 @@
 	</div>
 	<i class="icon-rat player-score-thumbnail" click.trigger="$this.$showConfigPlayer=!$this.$showConfigPlayer;$this.refresh()"></i>
 	<div class="players-count">{$this.player.score}</div>
-	<div if="$this.$showPlayers||$this.$showConfigPlayer" click.trigger="$this.$showPlayers=false;$this.$showConfigPlayer=false;$this.refresh()" class="block-content-info"></div>
+	<div if="$this.$showPlayers||$this.$showConfigPlayer||$this.playerWinner" click.trigger="$this.$showPlayers=false;$this.$showConfigPlayer=false;$this.playerWinner=null;$this.refresh()" class="block-content-info"></div>
 </template>
