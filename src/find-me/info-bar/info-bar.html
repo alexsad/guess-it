@@ -5,18 +5,19 @@
 			each="play in $this.players" 
 			title="{play.name}" 
 			class="play-info"
-			style="{'border-color':play.color}">
+			>
+			<i class="icon-rat player-score-thumbnail" style="{'color':play.color}"></i>
 			<span>
 				{play.score} - {play.name} 
 			</span>
 		</div>	
 	</div>
 
-
-
-	<div class="btn-show-players" click.trigger="$this.$showPlayers=!$this.$showPlayers;$this.refresh()"></div>
-	<div class="players-count" click.trigger="$this.$showPlayers=!$this.$showPlayers;$this.refresh()">{$this.players.length}</div>
-
-	<div class="player-score-thumbnail"></div>
+	<div style="float:right" click.trigger="$this.$showPlayers=!$this.$showPlayers;$this.refresh()">
+		<i class="icon-users-group btn-show-players"></i>
+		<div class="players-count">{$this.players.length}</div>
+	</div>
+	<i class="icon-rat player-score-thumbnail"></i>
 	<div class="players-count">{$this.getPlayerScore()}</div>
+	<div if="$this.$showPlayers" click.trigger="$this.$showPlayers=false;$this.refresh()" class="block-content-info"></div>
 </template>
