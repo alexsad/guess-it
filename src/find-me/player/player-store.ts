@@ -4,12 +4,14 @@ import {IPlayer} from "./i-player";
 import dashCardStore from "../dash-card/dash-card-store";
 import socket from "../web-socket/web-socket";
 import Cookies = require('js-cookie');
+import playerDispatch from "./player-dispatch";
 
 class PlayerStore {
 	onChange: EventEmitter<any> = new EventEmitter();
 	private players: IPlayer[];
 	constructor(){
 		this.players = [];
+
 		/*
 		setTimeout(()=>{
 			this.players = [
@@ -21,20 +23,22 @@ class PlayerStore {
 			];
 			this.onChange.emit(null);
 		},2000);
-		*/		
+		*/
 
-
-		socket.emit('join', this.getPlayerName());
-			
+		if (Cookies.get('player-id')){
+			socket.emit('reconnect', Cookies.get('player-id'));
+		}else{
+			socket.emit('join', this.getPlayerName());
+		}			
 		socket.on('update-all',(players:IPlayer[])=>{
 			this.players = players;
 			//console.log(players);
 			this.onChange.emit(null);
 			//dashCardStore.set(players[0].deck);
 		});
-
-		
-
+		playerDispatch.playerChange.subscribe((player:IPlayer)=>{
+			this.changePlayer(player);
+		});
 	}
 	get():IPlayer[]{
 		return this.players;
@@ -50,6 +54,7 @@ class PlayerStore {
 	}
 	public changePlayer(player:IPlayer):void{
 		Cookies.set('player-name',player.name);
+		Cookies.set('player-id', player.id);
 	}
 }
 
