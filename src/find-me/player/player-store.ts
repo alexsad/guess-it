@@ -24,9 +24,10 @@ class PlayerStore {
 			this.onChange.emit(null);
 		},2000);
 		*/
-
-		if (Cookies.get('player-id')){
-			socket.emit('reconnect', Cookies.get('player-id'));
+		let idPlayerFromCookiew = Cookies.get('player-id');
+		if (idPlayerFromCookiew){
+			//console.log('from cookie'+idPlayerFromCookiew);
+			socket.emit('reconnect-player',idPlayerFromCookiew,this.getPlayerName());
 		}else{
 			socket.emit('join', this.getPlayerName());
 		}			
@@ -54,7 +55,9 @@ class PlayerStore {
 	}
 	public changePlayer(player:IPlayer):void{
 		Cookies.set('player-name',player.name);
-		Cookies.set('player-id', player.id);
+		if(player.id){
+			Cookies.set('player-id', player.id);
+		}		
 	}
 }
 
