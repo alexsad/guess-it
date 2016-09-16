@@ -1,13 +1,5 @@
-declare var io:any;
-
-interface ISocket{
-	emit:(sign:string,value:any)=>void;
-	on:(event:string,cb:(p:any)=>void)=>void;
-}
-
-
+import io = require('socket.io-client');
 
 var socket = io();
 
-
-export default <ISocket>socket;
+export default socket;
