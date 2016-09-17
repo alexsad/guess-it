@@ -1,6 +1,7 @@
 import {IDashCard} from "./i-dash-card";
 import cardDispatch from "./card-dispatch";
 import socket from "../web-socket/web-socket";
+import Cookies = require('js-cookie');
 
 export class DashCard implements IDashCard{
 	public id:number;
@@ -37,6 +38,7 @@ export class DashCard implements IDashCard{
 	}
 	private submitCard():void{
 		if(this.id > -1){
+			Cookies.set('last-action',this.actionSubmit);
 			if(this.actionSubmit==="pick-card"){
 				cardDispatch.pickCard.emit({
 					id:this.id
