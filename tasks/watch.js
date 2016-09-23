@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 var proxy = require('http-proxy-middleware');
+var compileTs = require('./compile');
 
 gulp.task('static_serve', function() {
   connect.server({
@@ -9,14 +10,16 @@ gulp.task('static_serve', function() {
     livereload: true,
     middleware: function(connect, opt) {
         var apiProxy = proxy('/socket.io/', {
-            target: 'http://192.168.1.8:3000'
+            //target: 'http://mvbrrecdsk3206:3000'
+            target: 'http://mvbrrecdsk2778:3000'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/socket.io/' : '/socket.io/'
             }
         });
         var resourcesProxy = proxy('/cards/', {
-            target: 'http://192.168.1.8:3000'
+            //target: 'http://mvbrrecdsk3206:3000'
+            target: 'http://mvbrrecdsk2778:3000'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/cards/' : '/cards/'
@@ -34,7 +37,13 @@ gulp.task('reload',function(){
 gulp.task('watch',['compile','template','copy_assets'],function(){
     gulp.run('static_serve');
     gulp.watch("./src/**/*.html", ['template']);
-    gulp.watch('./src/**/*.ts', ['compile']);
+    gulp.watch('./src/**/*.ts').on('change',function(file){
+        var search = "/";
+        var path = file.path.replace(/\\/g,"/");
+        var fileName = path.substring(path.lastIndexOf(search)+search.length,path.length);
+        compileTs("./src/**/"+fileName);
+    });
+    //gulp.watch('./src/**/*.ts', ['compile']);
     gulp.watch('./src/**/assets/**/*.*', ['copy_assets']);
 
     gulp.watch('./dist/**/*.*').on('change',function(file){

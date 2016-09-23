@@ -31,7 +31,7 @@ export class InfoBar{
 			return true;
 		});
 		if(playerIndx < 0){
-			return {id:0,deck:[],name:"",score:0,color:"#FFFFFF"};
+			return {id:0,deck:[],name:"",score:0,color:"#FFFFFE"};
 		}
 		return this.players[playerIndx];
 	}
