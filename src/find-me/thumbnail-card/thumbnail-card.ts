@@ -33,7 +33,8 @@ export class ThumbnailCard{
 		cardDispatch.changeCard.emit(this.dashCardStore[indxcard]);
 	}
 	get dashCardStore(): IDashCard[] {
-		return dashCardStore.get().filter(({id})=>id!==this.lastPickedCard);
+		let lastPickedCard: number = -1 || -1;//this.lastPickedCard
+		return dashCardStore.get().filter(({id}) => id !== lastPickedCard);
 		//return dashCardStore.get();
 	}
 }

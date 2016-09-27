@@ -8,21 +8,26 @@ import playerStore from "../player/player-store";
 class PlayerInfo{
 	private _player:IPlayer;
 	constructor(){
-		let idPlayerFromCookiew = Cookies.get('player-id');
-		if(!idPlayerFromCookiew){
-			idPlayerFromCookiew = (new Date().getTime())+"";
-			Cookies.set('player-id',idPlayerFromCookiew);
-		}
-		let playerName:string = this.discoveryName();
 		this._player = {
-			id:idPlayerFromCookiew
-			,name:playerName
-			,color:"#FFFFFA"
-			,score:0
-			,deck:[]
-			,status:EPlayerStatus.WAITING
+			id: ""
+			, name: ""
+			, color: "#FFFFFA"
+			, score: 0
+			, deck: []
+			, status: EPlayerStatus.WAITING
 		};
-		socket.emit('join',this._player.id, this._player.name);
+	}
+
+	public join():void{
+		let idPlayerFromCookiew = Cookies.get('player-id');
+		if (!idPlayerFromCookiew) {
+			idPlayerFromCookiew = (new Date().getTime()) + "";
+			Cookies.set('player-id', idPlayerFromCookiew);
+		}
+		let playerName: string = this.discoveryName();
+		this._player.id = idPlayerFromCookiew;
+		this._player.name = playerName;
+		socket.emit('join', this._player.id, this._player.name);
 
 
 		/*
@@ -31,11 +36,10 @@ class PlayerInfo{
 		});
 		*/
 
-		playerStore.onChange.subscribe(()=>{
+		playerStore.onChange.subscribe(() => {
 			this.player = playerStore.getById(this._player.id);
 			playerDispatch.playerChange.emit(this.player);
 		});
-
 	}
 
 	private discoveryName():string{
