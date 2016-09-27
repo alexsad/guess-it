@@ -20,15 +20,15 @@ class DashCardStore {
 		*/
 		playerDispatch.playerChange.subscribe((player)=>{
 			if (player.status !== EPlayerStatus.BETING && player.status !== EPlayerStatus.WATCHING_BET) {
-				console.log("from player change!");
-				console.log(player.deck);
+				//console.log("from player change!");
+				//console.log(player);
 				this.set(player.deck);
 			}			
 		});
 
 		socket.on('cards-bet',(bets:IDashCard[]) =>{
-			console.log("from cards-bet!");
-			console.log(bets);
+			//console.log("from cards-bet!");
+			//console.log(bets);
 			this.set(bets)
 		});		
 		

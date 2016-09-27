@@ -59,8 +59,6 @@ class PlayerInfo{
 		return playertmp;
 	}
 	public set player(player:IPlayer){
-		Cookies.set('player-name',player.name);
-		this._player.name = player.name;
 		if(player.id){
 			Cookies.set('player-id', player.id);
 			this._player.id = player.id;
@@ -70,6 +68,11 @@ class PlayerInfo{
 			console.log(player.deck);	
 		}
 		*/
+		if(player.name!==this._player.name){
+			Cookies.set('player-name',player.name);
+			this._player.name = player.name;
+			socket.emit('rename-player', this._player.id, this._player.name);
+		}
 	}
 }
 

@@ -10,31 +10,39 @@ export class ThumbnailCard{
 		dashCardStore.onChange.subscribe(()=>{
 			(<any>this).refresh();
 		});
+		/*
 		cardDispatch.pickCard.subscribe(({id})=>{
 			this.lastPickedCard = id;
 		});
+
 		playerDispatch.playerChange.subscribe((playerLogged)=>{
 			this.lastPickedCard = playerLogged.pickedCard||-1;
 		});
-		
+		*/
+		cardDispatch.submitCard.subscribe(({id})=>{
+			//console.log(id);
+			this.lastPickedCard = id;
+		});
 	}
 	private changeCard(p_id:number):void{
 		//console.log(this.thumbnailsCard[indx]);
 		let indxcard:number = 0;
 
-		this.dashCardStore.every((card,indx)=>{
+		this.dashCardStore.some((card,indx)=>{
 			if(card.id===p_id){
 				indxcard = indx;
-				return false;
+				return true;
 			}
-			return true;
+			return false;
 		});
-
+		
 		cardDispatch.changeCard.emit(this.dashCardStore[indxcard]);
+		//this.lastPickedCard = p_id;
 	}
 	get dashCardStore(): IDashCard[] {
 		let lastPickedCard: number = this.lastPickedCard || -1;//this.lastPickedCard
-		//return dashCardStore.get().filter(({id}) => id !== lastPickedCard);
-		return dashCardStore.get();
+		//console.log(lastPickedCard);
+		return dashCardStore.get().filter(({id}) => id !== lastPickedCard);
+		//return dashCardStore.get();
 	}
 }

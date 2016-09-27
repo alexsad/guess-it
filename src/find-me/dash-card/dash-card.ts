@@ -3,10 +3,10 @@ import cardDispatch from "./card-dispatch";
 import socket from "../web-socket/web-socket";
 import playerDispatch from "../player/player-dispatch";
 import {EPlayerStatus} from "../player/e-player";
+import playerInfo from "../player/player-info";
 
 export class DashCard implements IDashCard{
 	public id:number;
-	public idPlayer:string;
 	public url:string;
 	private allowSubmit:boolean;
 	private actionSubmit:string;	
@@ -29,7 +29,6 @@ export class DashCard implements IDashCard{
 				}else if(player.status===EPlayerStatus.BETING){
 					this.actionSubmit='pick-bet';
 				}
-				this.idPlayer = player.id;
 				this.resetDefaults();
 				(<any>this).refresh();
 			}
@@ -47,7 +46,11 @@ export class DashCard implements IDashCard{
 					,url:this.url
 				});
 			}
-			socket.emit(this.actionSubmit,this.idPlayer,this.id);
+			cardDispatch.submitCard.emit({
+				id:this.id
+				,url:this.url
+			});
+			socket.emit(this.actionSubmit,playerInfo.player.id,this.id);
 			this.allowSubmit=false;
 			this.resetDefaults();
 			(<any>this).refresh();
