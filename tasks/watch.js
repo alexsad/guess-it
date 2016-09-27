@@ -11,7 +11,7 @@ gulp.task('static_serve', function() {
     middleware: function(connect, opt) {
         var apiProxy = proxy('/socket.io/', {
             //target: 'http://mvbrrecdsk3206:3000'
-            target: 'http://mvbrrecdsk2778:3000'
+            target: 'http://192.168.1.4:3000'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/socket.io/' : '/socket.io/'
@@ -19,7 +19,7 @@ gulp.task('static_serve', function() {
         });
         var resourcesProxy = proxy('/cards/', {
             //target: 'http://mvbrrecdsk3206:3000'
-            target: 'http://mvbrrecdsk2778:3000'
+            target: 'http://192.168.1.4:3000'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/cards/' : '/cards/'

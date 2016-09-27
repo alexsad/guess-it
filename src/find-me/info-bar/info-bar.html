@@ -23,7 +23,7 @@
 			title="{play.name}" 
 			class="play-info"
 			>
-			<i class="icon-rat player-score-thumbnail" style="{'color':play.color}"></i>
+			<i class="{'player-score-thumbnail '+(play.status===3?'icon-radom-cards':'icon-rat')}" style="{'color':play.color}"></i>
 			<span>
 				{play.score} - {play.name} 
 			</span>

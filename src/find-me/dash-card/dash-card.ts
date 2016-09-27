@@ -1,10 +1,12 @@
 import {IDashCard} from "./i-dash-card";
 import cardDispatch from "./card-dispatch";
 import socket from "../web-socket/web-socket";
-import Cookies = require('js-cookie');
+import playerDispatch from "../player/player-dispatch";
+import {EPlayerStatus} from "../player/e-player";
 
 export class DashCard implements IDashCard{
 	public id:number;
+	public idPlayer:string;
 	public url:string;
 	private allowSubmit:boolean;
 	private actionSubmit:string;	
@@ -18,18 +20,19 @@ export class DashCard implements IDashCard{
 			(<any>this).refresh();
 		});
 		
-		socket.on('allow-pick-card',()=>{
-			this.allowSubmit=true;
-			this.actionSubmit='pick-card';
-			this.resetDefaults();
-			(<any>this).refresh();
-		});
-
-		socket.on('allow-pick-bet',()=>{
-			this.allowSubmit=true;
-			this.actionSubmit='pick-bet';
-			this.resetDefaults();
-			(<any>this).refresh();
+		playerDispatch.playerChange.subscribe((player)=>{
+			if(player.status===EPlayerStatus.DISCARDING||player.status===EPlayerStatus.PICKING||player.status===EPlayerStatus.BETING){
+				this.allowSubmit=true;
+				this.actionSubmit='discard-card';
+				if(player.status===EPlayerStatus.PICKING){
+					this.actionSubmit='pick-card';
+				}else if(player.status===EPlayerStatus.BETING){
+					this.actionSubmit='pick-bet';
+				}
+				this.idPlayer = player.id;
+				this.resetDefaults();
+				(<any>this).refresh();
+			}
 		});
 	}
 	private resetDefaults():void{
@@ -38,14 +41,13 @@ export class DashCard implements IDashCard{
 	}
 	private submitCard():void{
 		if(this.id > -1){
-			Cookies.set('last-action',this.actionSubmit);
 			if(this.actionSubmit==="pick-card"){
 				cardDispatch.pickCard.emit({
 					id:this.id
 					,url:this.url
 				});
 			}
-			socket.emit(this.actionSubmit,this.id);
+			socket.emit(this.actionSubmit,this.idPlayer,this.id);
 			this.allowSubmit=false;
 			this.resetDefaults();
 			(<any>this).refresh();

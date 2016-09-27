@@ -1,16 +1,12 @@
 import playerStore from "../player/player-store";
 import {IPlayer} from "../player/i-player";
 import playerDispatch from "../player/player-dispatch";
+import playerInfo from "../player/player-info";
 
 export class InfoBar{
-	private idPlayerLogged:number=-1;
 	private playerWinner:IPlayer;
 	constructor(){
-		playerStore.onChange.subscribe(()=>{
-			(<any>this).refresh();
-		});
 		playerDispatch.playerChange.subscribe((player)=>{
-			this.idPlayerLogged = player.id;
 			(<any>this).refresh();
 		});
 		playerDispatch.playerWinner.subscribe((playerWinner)=>{
@@ -22,24 +18,13 @@ export class InfoBar{
 		return playerStore.get();
 	}
 	get player():IPlayer{
-		let playerIndx:number = -1;
-		this.players.every((player,indx)=>{
-			if(player.id===this.idPlayerLogged){
-				playerIndx = indx;
-				return false;
-			}
-			return true;
-		});
-		if(playerIndx < 0){
-			return {id:0,deck:[],name:"",score:0,color:"#FFFFFE"};
-		}
-		return this.players[playerIndx];
+		return playerInfo.player;
 	}
 	changePlayerName(name:string):void{
 		if(name){
 			let tmpplayer:IPlayer = this.player;
 			tmpplayer.name = name;
-			playerStore.changePlayer(tmpplayer);
+			playerInfo.player = tmpplayer;
 		}
 		(<any>this).refresh();
 	}

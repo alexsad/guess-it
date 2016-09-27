@@ -5,14 +5,14 @@ var ts = require('gulp-typescript');
 var tsConfig = require("../tsconfig.json").compilerOptions;
 
 function compile(path){
-    console.log(path);
+    //console.log(path);
     return gulp.src([
             path
             ,"./jspm_packages/npm/event-emitter-lite@1.0.5/*.d.ts"
         ])
         .pipe(ts(tsConfig))
         //.pipe(uglify())
-        .pipe(gulp.dest(tsConfig.outDir)); 
+        .pipe(gulp.dest(tsConfig.outDir));
 };
 
 gulp.task('compile',function(){
