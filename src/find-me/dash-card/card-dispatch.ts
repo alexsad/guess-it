@@ -5,6 +5,7 @@ class CardDispatch{
 	changeCard:EventEmitter<IDashCard> = new EventEmitter();
 	submitCard:EventEmitter<IDashCard> = new EventEmitter();
 	pickCard:EventEmitter<IDashCard> = new EventEmitter();
+	discardCard: EventEmitter<IDashCard> = new EventEmitter();
 }
 
 export default new CardDispatch();

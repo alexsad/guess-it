@@ -45,6 +45,11 @@ export class DashCard implements IDashCard{
 					id:this.id
 					,url:this.url
 				});
+			} else if (this.actionSubmit === "discard-card") {				
+				cardDispatch.discardCard.emit({
+					id: this.id
+					, url: this.url
+				});				
 			}
 			cardDispatch.submitCard.emit({
 				id:this.id

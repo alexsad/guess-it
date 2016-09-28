@@ -19,7 +19,7 @@ export class ThumbnailCard{
 			this.lastPickedCard = playerLogged.pickedCard||-1;
 		});
 		*/
-		cardDispatch.submitCard.subscribe(({id})=>{
+		cardDispatch.discardCard.subscribe(({id}) => {
 			//console.log(id);
 			this.lastPickedCard = id;
 		});
