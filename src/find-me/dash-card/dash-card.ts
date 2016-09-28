@@ -21,16 +21,20 @@ export class DashCard implements IDashCard{
 		});
 		
 		playerDispatch.playerChange.subscribe((player)=>{
-			if(player.status===EPlayerStatus.DISCARDING||player.status===EPlayerStatus.PICKING||player.status===EPlayerStatus.BETING){
-				this.allowSubmit=true;
-				this.actionSubmit='discard-card';
+			if(player.status===EPlayerStatus.DISCARDING||player.status===EPlayerStatus.PICKING||player.status===EPlayerStatus.BETING){					
+				let selectedAction: string = 'discard-card';					
 				if(player.status===EPlayerStatus.PICKING){
-					this.actionSubmit='pick-card';
+					selectedAction = 'pick-card';
 				}else if(player.status===EPlayerStatus.BETING){
-					this.actionSubmit='pick-bet';
-				}
-				this.resetDefaults();
-				(<any>this).refresh();
+					selectedAction = 'pick-bet';
+				};
+				//so executa o refresh em caso de mudanca de status.
+				if (this.actionSubmit !== selectedAction || !this.allowSubmit) {
+					this.actionSubmit = selectedAction;
+					this.allowSubmit = true;
+					this.resetDefaults();
+					(<any>this).refresh();
+				};
 			}
 		});
 	}
