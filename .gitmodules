@@ -1,0 +1,3 @@
+[submodule "src/find-me/interfaces"]
+	path = src/find-me/interfaces
+	url = https://github.com/alexsad/guess-it-interfaces

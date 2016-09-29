@@ -1,14 +1,14 @@
 import {EventEmitter} from "event-emitter-lite";
-import {IDashCard} from "./i-dash-card";
+import {ICard} from "../interfaces/i-card";
 import socket from "../web-socket/web-socket";
-import {IPlayer} from "../player/i-player";
+import {IPlayer} from "../interfaces/i-player";
 import playerDispatch from "../player/player-dispatch";
-import {EPlayerStatus} from "../player/e-player"
+import {EPlayerStatus} from "../interfaces/e-player"
 import playerInfo from "../player/player-info";
 
 class DashCardStore {
 	public onChange: EventEmitter<any> = new EventEmitter();
-	private dashCards: IDashCard[];
+	private dashCards: ICard[];
 	constructor() {
 		this.dashCards = [];
 		/*
@@ -27,7 +27,7 @@ class DashCardStore {
 			}			
 		});
 
-		socket.on('cards-bet',(bets:IDashCard[]) =>{
+		socket.on('cards-bet',(bets:ICard[]) =>{
 			//console.log("from cards-bet!");
 			//console.log(bets);
 			if (playerInfo.player.status === EPlayerStatus.BETING || playerInfo.player.status === EPlayerStatus.WATCHING_BET) {
@@ -39,10 +39,10 @@ class DashCardStore {
 		
 
 	}
-	public get(): IDashCard[] {
+	public get(): ICard[] {
 		return this.dashCards;
 	}
-	public set(cards:IDashCard[]):void{
+	public set(cards:ICard[]):void{
 		this.dashCards = cards.filter((card)=>{
 			return (card && card.id!==null);
 		});

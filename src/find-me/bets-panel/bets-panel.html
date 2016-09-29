@@ -9,8 +9,11 @@
 				<span>
 					{bet.player.name} - {bet.player.score}
 				</span>
-				<div class="vitims">
-					<i each="vitim in bet.vitims" class="player-score-thumbnail icon-rat" style="{'color':vitim.color}"></i>
+				<div class="voters">
+						<div each="voter in bet.voters">
+							<i class="player-score-thumbnail icon-rat" style="{'color':voter.color}"></i>
+							<span>{voter.name}</span>
+						</div>									
 				</div>
 			</div>			
 		</div>

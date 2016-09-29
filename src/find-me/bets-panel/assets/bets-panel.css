@@ -2,7 +2,7 @@
 	width: 100%;
 }
 
-.bet-box span{
+.bet-box > span{
 	width:70%;
 	font-size: 18px;
 	font-weight: bolder;
@@ -10,13 +10,17 @@
 	margin-top:10px;
 }
 
-.bet-box .vitims{
+.bet-box .voters{
 	width:70%;
 	margin-left:5px;
 }
 
-.bet-box .vitims i{
+.bet-box .voters i{
 	font-size: 18px;
 	font-weight: bolder;
 	margin:5px;
+}
+.bet-box .voters span{
+	font-size: 15px;
+	margin-top:4px;
 }

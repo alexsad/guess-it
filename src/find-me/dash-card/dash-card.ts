@@ -1,13 +1,15 @@
-import {IDashCard} from "./i-dash-card";
+import {ICard} from "../interfaces/i-card";
 import cardDispatch from "./card-dispatch";
 import socket from "../web-socket/web-socket";
 import playerDispatch from "../player/player-dispatch";
-import {EPlayerStatus} from "../player/e-player";
+import {EPlayerStatus} from "../interfaces/e-player";
+import {ECardStatus} from "../interfaces/e-card";
 import playerInfo from "../player/player-info";
 
-export class DashCard implements IDashCard{
+export class DashCard implements ICard{
 	public id:number;
 	public url:string;
+	public status: ECardStatus;
 	private allowSubmit:boolean;
 	private actionSubmit:string;	
 
@@ -51,16 +53,19 @@ export class DashCard implements IDashCard{
 				cardDispatch.pickCard.emit({
 					id:this.id
 					,url:this.url
+					, status: ECardStatus.USED
 				});
 			} else if (this.actionSubmit === "discard-card") {				
 				cardDispatch.discardCard.emit({
 					id: this.id
 					, url: this.url
+					, status: ECardStatus.USED
 				});				
 			}
 			cardDispatch.submitCard.emit({
 				id:this.id
 				,url:this.url
+				, status: ECardStatus.USED
 			});
 			this.resetDefaults();
 			(<any>this).refresh();

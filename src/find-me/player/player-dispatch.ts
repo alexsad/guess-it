@@ -1,5 +1,5 @@
 import {EventEmitter} from "event-emitter-lite";
-import {IPlayer} from "./i-player";
+import {IPlayer} from "../interfaces/i-player";
 import socket from "../web-socket/web-socket";
 
 class PlayerDispatch{

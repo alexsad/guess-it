@@ -1,4 +1,4 @@
-import {IDashCard} from "../dash-card/i-dash-card";
+import {ICard} from "../interfaces/i-card";
 import cardDispatch from "../dash-card/card-dispatch";
 import dashCardStore from "../dash-card/dash-card-store";
 import playerDispatch from "../player/player-dispatch";
@@ -39,7 +39,7 @@ export class ThumbnailCard{
 		cardDispatch.changeCard.emit(this.dashCardStore[indxcard]);
 		//this.lastPickedCard = p_id;
 	}
-	get dashCardStore(): IDashCard[] {
+	get dashCardStore(): ICard[] {
 		let lastPickedCard: number = this.lastPickedCard || -1;//this.lastPickedCard
 		//console.log(lastPickedCard);
 		return dashCardStore.get().filter(({id}) => id !== lastPickedCard);

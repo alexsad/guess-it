@@ -1,5 +1,5 @@
 import playerStore from "../player/player-store";
-import {IPlayer} from "../player/i-player";
+import {IPlayer} from "../interfaces/i-player";
 import playerDispatch from "../player/player-dispatch";
 import playerInfo from "../player/player-info";
 

@@ -1,6 +1,6 @@
 import {EventEmitter} from "event-emitter-lite";
 import socket from "../web-socket/web-socket";
-import {IBet} from "./i-bet";
+import {IBet} from "../interfaces/i-bet";
 
 class BetsPanelStore {
 	public onChange: EventEmitter<any> = new EventEmitter();

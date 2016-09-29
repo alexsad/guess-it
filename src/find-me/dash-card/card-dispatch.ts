@@ -1,11 +1,11 @@
 import {EventEmitter} from "event-emitter-lite";
-import {IDashCard} from "../dash-card/i-dash-card";
+import {ICard} from "../interfaces/i-card";
 
 class CardDispatch{
-	changeCard:EventEmitter<IDashCard> = new EventEmitter();
-	submitCard:EventEmitter<IDashCard> = new EventEmitter();
-	pickCard:EventEmitter<IDashCard> = new EventEmitter();
-	discardCard: EventEmitter<IDashCard> = new EventEmitter();
+	changeCard: EventEmitter<ICard> = new EventEmitter();
+	submitCard: EventEmitter<ICard> = new EventEmitter();
+	pickCard: EventEmitter<ICard> = new EventEmitter();
+	discardCard: EventEmitter<ICard> = new EventEmitter();
 }
 
 export default new CardDispatch();

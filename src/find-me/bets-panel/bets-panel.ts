@@ -1,5 +1,5 @@
 import betsStore from "./bets-panel-store";
-import {IBet} from "./i-bet";
+import {IBet} from "../interfaces/i-bet";
 
 export class BetsPanel{
 	private visible:boolean;

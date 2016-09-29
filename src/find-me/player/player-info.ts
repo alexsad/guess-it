@@ -1,5 +1,5 @@
-import {IPlayer} from "./i-player";
-import {EPlayerStatus} from "./e-player";
+import {IPlayer} from "../interfaces/i-player";
+import {EPlayerStatus} from "../interfaces/e-player";
 import Cookies = require('js-cookie');
 import socket from "../web-socket/web-socket";
 import playerDispatch from "./player-dispatch";
