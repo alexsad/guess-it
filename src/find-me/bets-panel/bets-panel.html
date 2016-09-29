@@ -1,0 +1,19 @@
+<template name="betsPanel" args="$this">
+	<require from="./assets/bets-panel.css!"></require>
+	<if condition="$this.visible">
+		<div class="popup-options config-popup">
+			<div class="bet-box" each="bet in $this.bets">
+				<div class="thumbnail-card">
+					<img class="{'img-card'}" src="{bet.card.url}">
+				</div>
+				<span>
+					{bet.player.name} - {bet.player.score}
+				</span>
+				<div class="vitims">
+					<i each="vitim in bet.vitims" class="player-score-thumbnail icon-rat" style="{'color':vitim.color}"></i>
+				</div>
+			</div>			
+		</div>
+	</if>
+	<div if="$this.visible" click.trigger="$this.visible=false;$this.refresh()" class="block-content-info"></div>
+</template>

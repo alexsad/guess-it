@@ -59,6 +59,7 @@ class PlayerInfo{
 		return playertmp;
 	}
 	public set player(player:IPlayer){
+		this._player.status = player.status;
 		if(player.id){
 			Cookies.set('player-id', player.id);
 			this._player.id = player.id;

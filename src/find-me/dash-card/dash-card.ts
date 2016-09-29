@@ -29,6 +29,7 @@ export class DashCard implements IDashCard{
 					selectedAction = 'pick-bet';
 				};
 				//so executa o refresh em caso de mudanca de status.
+				//console.log(`${this.actionSubmit} : ${selectedAction} : ${this.allowSubmit} `)
 				if (this.actionSubmit !== selectedAction || !this.allowSubmit) {
 					this.actionSubmit = selectedAction;
 					this.allowSubmit = true;
@@ -44,6 +45,8 @@ export class DashCard implements IDashCard{
 	}
 	private submitCard():void{
 		if(this.id > -1){
+			this.allowSubmit=false;
+			socket.emit(this.actionSubmit,playerInfo.player.id,this.id);
 			if(this.actionSubmit==="pick-card"){
 				cardDispatch.pickCard.emit({
 					id:this.id
@@ -59,8 +62,6 @@ export class DashCard implements IDashCard{
 				id:this.id
 				,url:this.url
 			});
-			socket.emit(this.actionSubmit,playerInfo.player.id,this.id);
-			this.allowSubmit=false;
 			this.resetDefaults();
 			(<any>this).refresh();
 		}

@@ -4,6 +4,7 @@ import socket from "../web-socket/web-socket";
 import {IPlayer} from "../player/i-player";
 import playerDispatch from "../player/player-dispatch";
 import {EPlayerStatus} from "../player/e-player"
+import playerInfo from "../player/player-info";
 
 class DashCardStore {
 	public onChange: EventEmitter<any> = new EventEmitter();
@@ -29,7 +30,9 @@ class DashCardStore {
 		socket.on('cards-bet',(bets:IDashCard[]) =>{
 			//console.log("from cards-bet!");
 			//console.log(bets);
-			this.set(bets)
+			if (playerInfo.player.status === EPlayerStatus.BETING || playerInfo.player.status === EPlayerStatus.WATCHING_BET) {
+				this.set(bets)
+			}
 		});		
 		
 
