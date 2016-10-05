@@ -2,6 +2,7 @@
 	<require from="./assets/bets-panel.css!"></require>
 	<if condition="$this.visible">
 		<div class="popup-options config-popup">
+			<span style="float:right;width:10px;height:10px;font-size:15px;font-weight:bolder;margin-right:14px;margin-top:-10px" click.trigger="$this.visible=false;$this.refresh()">X</span>
 			<div class="bet-box" each="bet in $this.bets">
 				<div class="thumbnail-card">
 					<img class="{'img-card'}" src="{bet.card.url}">
