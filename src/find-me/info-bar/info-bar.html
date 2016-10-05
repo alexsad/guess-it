@@ -2,6 +2,9 @@
 	<require from="./assets/info-bar.css!"></require>
 	<if condition="$this.$showConfigPlayer">
 		<div class="popup-options config-popup">
+			<h2>
+				<span class="close-popup" click.trigger="$this.$showConfigPlayer=false;$this.refresh()">X</span>
+			</h2>
 			<i class="icon-rat" style="{'color':$this.player.color}"></i>
 			<label>Novo nome:</label>
 			<input type="text" placeholder="Mudar Nome do Player" value="{$this.player.name}" change.trigger="$this.$tmpPlayerName=$event.target.value">
@@ -11,6 +14,9 @@
 	</if>
 
 	<div if="$this.$showPlayers||$this.playerWinner" class="players-list popup-options">
+		<h2>
+			<span class="close-popup" click.trigger="$this.$showPlayers=false;$this.playerWinner=null;$this.refresh()">X</span>
+		</h2>
 		<if condition="$this.playerWinner">
 			<h1>Fim de Jogo!</h1>			
 			<h2 style="float: none;">
