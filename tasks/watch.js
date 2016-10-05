@@ -34,7 +34,11 @@ gulp.task('reload',function(){
 	connect.reload();
 });
 
-gulp.task('watch',['compile','template','copy_assets'],function(){
+gulp.task('build',['compile','template','copy_assets'],function(){
+    
+});
+
+gulp.task('watch',['build'],function(){
     gulp.run('static_serve');
     gulp.watch("./src/**/*.html", ['template']);
     gulp.watch('./src/**/*.ts').on('change',function(file){
