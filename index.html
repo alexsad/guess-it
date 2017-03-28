@@ -8,12 +8,12 @@
     <script src="config.js"></script>
   </head>
   <body>
-    <div app="dist/find-me/main/main"></div>
+    <div app="apps/main/main"></div>
     <script>
-      //System.import('dist/find-me/main/main').then(function(_mod_main){
-          System.import("ferrugemjs");
-
-      //});      
+      System.config({map:{
+        "apps":"dist/find-me"
+      }});
+      System.import("ferrugemjs");     
     </script>
   </body>
 </html>

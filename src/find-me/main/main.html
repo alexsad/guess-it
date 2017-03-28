@@ -1,15 +1,17 @@
-<template name="mainApp" args="$this">
-	<require from="./assets/css/basic.css!"></require>
-	<require from="./assets/css/guessit.css!"></require>
-	<require from="../user-dash-board/assets/user-dash-board.css!"></require>
-	<require from="../info-bar/info-bar"></require>
-	<require from="../dash-card/dash-card"></require>
-	<require from="../thumbnail-card/thumbnail-card"></require>	
-	<require from="../bets-panel/bets-panel"></require>
-	<info-bar></info-bar>	
-	<thumbnail-card></thumbnail-card>
-	<div class="{'user-dash-board'}">
-		<dash-card></dash-card>
-	</div>	
-	<bets-panel></bets-panel>
+<template>
+	<require from="./assets/css/basic.css!"/>
+	<require from="./assets/css/guessit.css!"/>
+	<require from="../user-dash-board/assets/user-dash-board.css!"/>
+	<require from="../info-bar/info-bar"/>
+	<require from="../dash-card/dash-card"/>
+	<require from="../thumbnail-card/thumbnail-card"/>	
+	<require from="../bets-panel/bets-panel"/>
+	<div>
+		<info-bar/>	
+		<thumbnail-card/>
+		<div class="{'user-dash-board'}">
+			<dash-card/>
+		</div>	
+		<bets-panel/>
+	</div>
 </template>
