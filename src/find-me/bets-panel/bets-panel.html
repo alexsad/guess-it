@@ -2,10 +2,10 @@
 	<require from="./assets/bets-panel.css!"/>
 	<div class="bet-box">
 		<div
-			if="this.visible" 
+			if="!this.hidden" 
 			class="popup-options config-popup">
 			<h2>
-				<span class="close-popup" click.trigger="this.refresh({visible:false})">X</span>
+				<span class="close-popup" click.trigger="this.refresh({hidden:true})">X</span>
 			</h2>	
 			<div class="bet-box" each="bet in this.bets">
 				<div class="thumbnail-card">
@@ -16,12 +16,12 @@
 				</span>
 				<div class="voters">
 						<div each="voter in bet.voters">
-							<i class="player-score-thumbnail icon-rat" style="${'color+'voter.color}"></i>
+							<i class="player-score-thumbnail icon-rat" style="${'color:'+voter.color}"></i>
 							<span>${voter.name}</span>
 						</div>									
 				</div>
 			</div>			
 		</div>
-		<div if="this.visible" click.trigger="this.refresh({visible:false})" class="block-content-info"></div>
+		<div if="!this.hidden" click.trigger="this.refresh({hidden:true})" class="block-content-info"></div>
 	</div>
 </template>

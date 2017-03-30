@@ -8,11 +8,11 @@ System.config({
   },
 
   map: {
-    "css": "github:systemjs/plugin-css@0.1.32",
+    "css": "github:systemjs/plugin-css@0.1.33",
     "es6-shim": "npm:es6-shim@0.35.1",
-    "event-emitter-lite": "npm:event-emitter-lite@1.0.5",
-    "ferrugemjs": "npm:ferrugemjs@0.11.7",
-    "ferrugemjs-router": "npm:ferrugemjs-router@0.0.3",
+    "event-emitter-lite": "npm:event-emitter-lite@1.0.7",
+    "ferrugemjs": "npm:ferrugemjs@0.11.10",
+    "ferrugemjs-router": "npm:ferrugemjs-router@0.0.11",
     "incremental-dom": "npm:incremental-dom@0.5.1",
     "js-cookie": "npm:js-cookie@2.1.3",
     "promised-xhr": "npm:promised-xhr@1.2.0",
@@ -88,7 +88,7 @@ System.config({
     "npm:es6-shim@0.35.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:ferrugemjs-router@0.0.3": {
+    "npm:ferrugemjs-router@0.0.11": {
       "page": "npm:page@1.7.1"
     },
     "npm:has-binary@0.1.7": {

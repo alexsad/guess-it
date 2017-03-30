@@ -54,9 +54,10 @@ body > div{
 }
 
 .popup-options{
-	position:absolute;
-	top:80px;
-	right:10px;
+	position:fixed;
+	top:20%;
+	left:10%;
+	width:80%;
 	min-height:160px;
 	background-color:#ffffff;
 	border-radius:10px;
@@ -64,6 +65,9 @@ body > div{
 	padding-top:10px;
 	z-index:40;
 	padding-bottom:20px;
+}
+.popup-options > div{
+	width:100%;
 }
 .popup-options h1,.popup-options h2{
 	width: 100%;

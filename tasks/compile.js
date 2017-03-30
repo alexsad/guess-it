@@ -8,10 +8,10 @@ function compile(path){
     //console.log(path);
     return gulp.src([
             path
-            ,"./jspm_packages/npm/event-emitter-lite@1.0.5/*.d.ts"
+            ,"./jspm_packages/npm/event-emitter-lite@**/*.d.ts"
         ])
         .pipe(ts(tsConfig))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest(tsConfig.outDir));
 };
 

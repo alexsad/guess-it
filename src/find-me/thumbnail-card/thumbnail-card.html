@@ -3,8 +3,8 @@
 	<div class="thumbnail-card">
 		<img 
 			each="thumbnail in this.dashCardStore"
-			class="{'img-card'}"
-			src="{thumbnail.url}"
+			class="${'img-card'}"
+			src="${thumbnail.url}"
 			click.trigger="this.changeCard(thumbnail.id)"
 		/>
 	</div>
