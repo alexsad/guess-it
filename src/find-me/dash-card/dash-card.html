@@ -1,5 +1,5 @@
 <template>
-	<require from="./assets/dash-card.css!"/>
+	<require from="./assets/dash-card.css"/>
 	<div class="dash-card">
 		<div class="${'turn-indication'+(this.allowSubmit?'':' is-loading')}">${(this.allowSubmit?'Escolha sua carta!':'Aguarde a sua vez!')}</div>
 		<div if="this.allowSubmit" click.trigger="this.submitCard" class="submit-card">jogar</div>
