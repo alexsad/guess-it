@@ -8,7 +8,7 @@ export class MainApp{
 	}
 	attached(){
 		playerInfo.join();
-		window.onfocus = ()=>{
+		window.onfocus = () => {
 			if (!socket.connected) {
 				console.log('reconected!!!');
 				playerInfo.join();

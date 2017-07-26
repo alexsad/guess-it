@@ -12,18 +12,18 @@ module.exports = {
         port: 9000,
         proxy: {
 		  "/cards": {
-		    target: "http://192.168.5.59:3000",
+		    target: "http://localhost:3000",
 		    pathRewrite: {"^/cards/" : "/cards/"}
 		  }
 		  ,"/socket.io":{
-		    target: "http://192.168.5.59:3000",
+		    target: "http://localhost:3000",
 		    pathRewrite: {"^/socket.io/" : "/socket.io/"}			
 		  }
 		}
     },
-    module: {
+	module: {
         loaders: [
-			{
+            {
 				test: /\.ts$/,
 				loader: 'ts-loader'
 			}
@@ -37,8 +37,8 @@ module.exports = {
    				loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
 			}
 		]
-    }
-	,resolve: {
+    },
+	resolve: {
 		extensions: [".ts",".html",".js"]
 		,alias:{    		
 			"apps":path.resolve(__dirname, './src/find-me')

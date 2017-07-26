@@ -8,7 +8,7 @@
     "copy:index": "copyfiles ./index.html public",
     "watch": "webpack-dev-server --progress --colors --config webpack.config.js",
     "w:home": "webpack-dev-server --progress --colors --host 127.0.0.1:3000",
-    "build": "npm run copy:index && webpack --config webpack.config.js"
+    "build": "npm run copy:index && webpack --config webpack.config.js --optimize-minimize"
   },
   "author": "ferrugemjs",
   "license": "ISC",
@@ -18,7 +18,7 @@
     "bootstrap-validator": "^0.11.9",
     "es6-shim": "^0.35.3",
     "event-emitter-lite": "^1.1.0",
-    "ferrugemjs": "^0.16.4",
+    "ferrugemjs": "^0.17.2",
     "ferrugemjs-router": "^0.15.1",
     "jquery": "^3.2.1",
     "js-cookie": "^2.1.4",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "copyfiles": "^1.2.0",
     "css-loader": "^0.28.4",
-    "ferrugemjs-loader": "^0.16.0",
+    "ferrugemjs-loader": "^0.16.3",
     "file-loader": "^0.11.2",
     "http-proxy-middleware": "^0.17.4",
     "style-loader": "^0.18.2",
