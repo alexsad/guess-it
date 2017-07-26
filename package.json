@@ -7,7 +7,7 @@
     "copy:interfaces": "copyfiles ../interfaces/*.ts src/interfaces",
     "copy:index": "copyfiles ./index.html public",
     "watch": "webpack-dev-server --progress --colors --config webpack.config.js",
-    "w:home": "webpack-dev-server --progress --colors --host 127.0.0.1:3000",
+    "w:home": "webpack-dev-server --progress --colors --config webpack.config.js --host 192.168.0.100:3000",
     "build": "npm run copy:index && webpack --config webpack.config.js --optimize-minimize"
   },
   "author": "ferrugemjs",
