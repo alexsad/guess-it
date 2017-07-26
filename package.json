@@ -19,7 +19,7 @@
     "es6-shim": "^0.35.3",
     "event-emitter-lite": "^1.1.0",
     "ferrugemjs": "^0.17.2",
-    "ferrugemjs-router": "^0.15.1",
+    "ferrugemjs-router": "^0.16.3",
     "jquery": "^3.2.1",
     "js-cookie": "^2.1.4",
     "moment": "^2.18.1",
