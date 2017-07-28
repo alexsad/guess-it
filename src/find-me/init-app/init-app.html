@@ -6,7 +6,11 @@
 	<require from="../info-bar/info-bar"/>
 	<require from="../dash-card/dash-card"/>
 	<require from="../thumbnail-card/thumbnail-card"/>
+	<require from="../player/player-info as player_info" type="script"/>
 	<div>
+		<h1>
+			${player_info.default.player.name}
+		</h1>
 		<info-bar/>		
 		<thumbnail-card/>
 		<div class="${'user-dash-board'}">
@@ -18,5 +22,9 @@
 			<route path="/players-score" view-model="player/players-score"/>
 			<route path="/bets-panel" view-model="bets-panel/bets-panel"/>
 		</rt:router-view>
+		<rt:redirect 
+			if="!player_info.default.player.name" 
+			path="/player-config"
+		/>
 	</div>
 </template>

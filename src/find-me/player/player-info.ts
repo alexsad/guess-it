@@ -44,11 +44,12 @@ class PlayerInfo{
 
 	private discoveryName():string{
 	  let playerName = Cookies.get('player-name');
-	  if(!playerName){
-	  	playerName = prompt('digite seu nome!','');
+	  //if(!playerName){
+	  	//playerName = prompt('digite seu nome!','');
 	  	//playerName=playerName+'-'+new Date().getTime();
-	  	Cookies.set('player-name',playerName);
-	  }	  
+	  	//Cookies.set('player-name',playerName);
+	  	//---/player-config
+	  //}	  
       return playerName;
 	}
 	public get player():IPlayer{
@@ -69,7 +70,7 @@ class PlayerInfo{
 			console.log(player.deck);	
 		}
 		*/
-		if(player.name!==this._player.name){
+		if(player.name !== this._player.name){
 			Cookies.set('player-name',player.name);
 			this._player.name = player.name;
 			socket.emit('rename-player', this._player.id, this._player.name);

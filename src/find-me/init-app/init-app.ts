@@ -10,11 +10,10 @@ export class MainApp{
 		playerInfo.join();
 		window.onfocus = () => {
 			if (!socket.connected) {
-				console.log('reconected!!!');
 				playerInfo.join();
 			}			
 		}
-		betsStore.onChange.subscribe(()=>{
+		betsStore.onChange.subscribe(() => {
 			router({
 				path:"/bets-panel"
 				,timeout:1000
