@@ -1,13 +1,20 @@
 <template>
 	<require from="./assets/info-bar.css"/>
+	<require from="../player/player-info as player_info" type="script"/>
+	<require from="ferrugemjs-router as rt" type="namespace"/>
 	<div class="info-bar">
 		<a href="/players-score" style="float:right">
 			<i class="icon-users-group btn-show-players"></i>
 			<div class="players-count">${this.players.length}</div>
 		</a>
-		<a href="/player-config" style="float:right">
+		<a href="${'/player-config/'+player_info.default.player.name}" style="float:right">
 			<i class="icon-rat player-score-thumbnail"></i>
 			<div class="players-count">${this.player.score}</div>			
 		</a>
+		<rt:router-redirect 
+			if="!player_info.default.player.name"
+			path="${'/player-config/player_'+new Date().getTime()}"
+			timeout="200"
+		/>
 	</div>
 </template>

@@ -38,9 +38,9 @@
 			<h2>
 				<span if="this.closeable" class="close-popup" click.trigger="this.refresh({hidden:true})">X</span>
 			</h2>
-			<i class="icon-rat" style="${'color:'+this.player.color}"></i>
+			<i class="icon-rat"></i>
 			<label>Nome:</label>
-			<input type="text" placeholder="Digite o seu apelidio" value="${this.player.name}" change.bind="this.name">
+			<input type="text" placeholder="Digite o seu apelidio" value="${this.playerName}" change.bind="this.playerName">
 			<button click.trigger="this.save">OK</button>	
 		</div>
 		<div if="!this.hidden" click.trigger="this.hide" class="block-content-info"></div>

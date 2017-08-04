@@ -4,6 +4,7 @@ import Cookies = require('js-cookie');
 import socket from "../web-socket/web-socket";
 import playerDispatch from "./player-dispatch";
 import playerStore from "../player/player-store";
+import {requestPlayerName} from "../actions/player";
 
 class PlayerInfo{
 	private _player:IPlayer;
@@ -16,41 +17,26 @@ class PlayerInfo{
 			, deck: []
 			, status: EPlayerStatus.WAITING
 		};
-	}
-
-	public join():void{
 		let idPlayerFromCookiew = Cookies.get('player-id');
 		if (!idPlayerFromCookiew) {
 			idPlayerFromCookiew = (new Date().getTime()) + "";
 			Cookies.set('player-id', idPlayerFromCookiew);
+			this._player.id = idPlayerFromCookiew;
 		}
-		let playerName: string = this.discoveryName();
-		this._player.id = idPlayerFromCookiew;
-		this._player.name = playerName;
-		socket.emit('join', this._player.id, this._player.name);
-
-
-		/*
-		playerDispatch.playerChange.subscribe((player:IPlayer)=>{
-			this.player = player;
+		let playerName = Cookies.get('player-name');
+		if(playerName){
+			this._player.name = playerName;
+		}
+	}
+	public join():void{
+		requestPlayerName.subscribe(playerName => {
+			this._player.name = playerName;
+			socket.emit('join', this._player.id, this._player.name);		
 		});
-		*/
-
 		playerStore.onChange.subscribe(() => {
 			this.player = playerStore.getById(this._player.id);
 			playerDispatch.playerChange.emit(this.player);
 		});
-	}
-
-	private discoveryName():string{
-	  let playerName = Cookies.get('player-name');
-	  //if(!playerName){
-	  	//playerName = prompt('digite seu nome!','');
-	  	//playerName=playerName+'-'+new Date().getTime();
-	  	//Cookies.set('player-name',playerName);
-	  	//---/player-config
-	  //}	  
-      return playerName;
 	}
 	public get player():IPlayer{
 		let playertmp:IPlayer = playerStore.getById(this._player.id);
@@ -65,13 +51,8 @@ class PlayerInfo{
 			Cookies.set('player-id', player.id);
 			this._player.id = player.id;
 		}
-		/*
-		if(player.status===EPlayerStatus.DISCARDING||player.status===EPlayerStatus.PICKING){
-			console.log(player.deck);	
-		}
-		*/
+		Cookies.set('player-name',player.name);
 		if(player.name !== this._player.name){
-			Cookies.set('player-name',player.name);
 			this._player.name = player.name;
 			socket.emit('rename-player', this._player.id, this._player.name);
 		}

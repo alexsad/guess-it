@@ -1,28 +1,25 @@
-import playerStore from "./player-store";
 import {IPlayer} from "../interfaces/i-player";
-import playerDispatch from "./player-dispatch";
-import playerInfo from "./player-info";
 import {IEventSubscribe} from "event-emitter-lite";
+import {requestPlayerName} from "../actions/player";
 
 export class PlayerConfig{
-	private name:string;
+	private playerName:string;
 	private hidden:boolean;
 	private closeable:boolean;
 	private refresh:Function;
 	constructor(){
 		this.closeable = false;
+		console.log('ops');
+	}
+	private attached(){
+		requestPlayerName.emit(this.playerName);
 	}
 	private save():void{
-		if(this.name){
-			let tmpplayer:IPlayer = this.player;
-			tmpplayer.name = this.name;
-			playerInfo.player = tmpplayer;
+		if(this.playerName){
+			requestPlayerName.emit(this.playerName);
 			this.hidden = true;
 			this.refresh();
 		}		
-	}
-	private get player():IPlayer{
-		return playerInfo.player;
 	}
 	private hide(){
 		if(this.closeable){

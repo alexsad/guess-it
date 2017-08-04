@@ -3,9 +3,7 @@ import socket from "../web-socket/web-socket";
 import betsStore from "../bets-panel/bets-panel-store";
 import router from "ferrugemjs-router";
 export class MainApp{
-	constructor(){
-		
-	}
+	constructor(){}
 	attached(){
 		playerInfo.join();
 		window.onfocus = () => {
