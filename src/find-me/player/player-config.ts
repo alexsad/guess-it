@@ -7,13 +7,7 @@ export class PlayerConfig{
 	private hidden:boolean;
 	private closeable:boolean;
 	private refresh:Function;
-	constructor(){
-		this.closeable = false;
-		console.log('ops');
-	}
-	private attached(){
-		requestPlayerName.emit(this.playerName);
-	}
+	constructor(){}
 	private save():void{
 		if(this.playerName){
 			requestPlayerName.emit(this.playerName);

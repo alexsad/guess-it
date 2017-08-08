@@ -20,7 +20,6 @@ class PlayerInfo{
 		let idPlayerFromCookiew = Cookies.get('player-id');
 		if (!idPlayerFromCookiew) {
 			idPlayerFromCookiew = (new Date().getTime()) + "";
-			Cookies.set('player-id', idPlayerFromCookiew);
 			this._player.id = idPlayerFromCookiew;
 		}
 		let playerName = Cookies.get('player-name');
@@ -30,10 +29,12 @@ class PlayerInfo{
 	}
 	public join():void{
 		requestPlayerName.subscribe(playerName => {
+			//emitindo novo nome do player
 			this._player.name = playerName;
 			socket.emit('join', this._player.id, this._player.name);		
 		});
 		playerStore.onChange.subscribe(() => {
+			//recebendo novos dados do player
 			this.player = playerStore.getById(this._player.id);
 			playerDispatch.playerChange.emit(this.player);
 		});
@@ -46,6 +47,7 @@ class PlayerInfo{
 		return playertmp;
 	}
 	public set player(player:IPlayer){
+		debugger;
 		this._player.status = player.status;
 		if(player.id){
 			Cookies.set('player-id', player.id);
