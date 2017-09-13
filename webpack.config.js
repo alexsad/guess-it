@@ -23,7 +23,13 @@ module.exports = {
     },
 	module: {
         loaders: [
-            {
+			{
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: { configFile:'tslint.json' }
+            }        
+            ,{
 				test: /\.ts$/,
 				loader: 'ts-loader'
 			}

@@ -1,4 +1,4 @@
-import betsStore from "./bets-panel-store";
+import betsStore from "../stores/bets-panel-store";
 import {IBet} from "../interfaces/i-bet";
 
 export class BetsPanel{

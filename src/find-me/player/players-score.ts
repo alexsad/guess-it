@@ -1,6 +1,6 @@
-import playerStore from "./player-store";
+import playerStore from "../stores/player-store";
 import {IPlayer} from "../interfaces/i-player";
-import playerDispatch from "./player-dispatch";
+import {playerChange,playerWinner} from "../actions/player";
 import playerInfo from "./player-info";
 import {IEventSubscribe} from "event-emitter-lite";
 
@@ -11,26 +11,26 @@ export class PlayersScore{
 	constructor(){
 		this.subs = [];
 	}
-	get players(): IPlayer[] {
+	private get players(): IPlayer[] {
 		return playerStore.get();
 	}
-	get player():IPlayer{
+	private get player():IPlayer{
 		return playerInfo.player;
 	}
-	attached(){
+	private connectedCallback(){
 		this.subs.push(
-			playerDispatch.playerChange.subscribe(player=>{
+			playerChange.subscribe(player => {
 				this.refresh();
 			})
 		);
 		this.subs.push(		
-			playerDispatch.playerWinner.subscribe(playerWinner=>{
+			playerWinner.subscribe(playerWinner => {
 				this.playerWinner = playerWinner;
 				this.refresh();
 			})
 		);	
 	}
-	detached(){
+	private disconnectedCallback(){
 		this.subs.forEach(subi=>subi.cancel());
 		this.subs = [];
 		this.playerWinner = null;

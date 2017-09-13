@@ -1,7 +1,6 @@
 import {ICard} from "../interfaces/i-card";
-import cardDispatch from "../dash-card/card-dispatch";
-import dashCardStore from "../dash-card/dash-card-store";
-import playerDispatch from "../player/player-dispatch";
+import {discardCard,changeCard} from "../actions/card";
+import dashCardStore from "../stores/dash-card-store";
 
 export class ThumbnailCard{
 	private lastPickedCard:number;
@@ -19,7 +18,7 @@ export class ThumbnailCard{
 			this.lastPickedCard = playerLogged.pickedCard||-1;
 		});
 		*/
-		cardDispatch.discardCard.subscribe(({id}) => {
+		discardCard.subscribe(({id}) => {
 			//console.log(id);
 			this.lastPickedCard = id;
 		});
@@ -36,7 +35,7 @@ export class ThumbnailCard{
 			return false;
 		});
 		
-		cardDispatch.changeCard.emit(this.dashCardStore[indxcard]);
+		changeCard.emit(this.dashCardStore[indxcard]);
 		//this.lastPickedCard = p_id;
 	}
 	get dashCardStore(): ICard[] {

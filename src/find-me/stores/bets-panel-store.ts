@@ -7,7 +7,7 @@ class BetsPanelStore {
 	private bets: IBet[];
 	constructor() {
 		this.bets = [];
-		socket.on('bets-reveled',(bets:IBet[]) =>{
+		socket.on("bets-reveled",(bets:IBet[]) =>{
 			this.bets=bets;
 			this.onChange.emit(null);
 		});		

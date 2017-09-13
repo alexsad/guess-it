@@ -1,6 +1,3 @@
 import "es6-shim";
-import 'whatwg-fetch';
-declare let require:any;
-window["jQuery"] = window["$"] =  require('jquery');
-
+import "whatwg-fetch";
 import "ferrugemjs/bootstrapper";
