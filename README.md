@@ -1,26 +1,19 @@
 #FerrugemJS game example project
-###A simple library, reactive, conventional and non-intrusive!
-**FerrugemJS** is inspired by the [Aurelia](http://aurelia.io/) and [React](https://facebook.github.io/react/) using [Incremental DOM](http://google.github.io/incremental-dom/) with [superviewjs](https://github.com/davidjamesstone/superviews.js) as template engine.
 
-[![NPM](https://nodei.co/npm/ferrugemjs.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ferrugemjs/)
+# Guess-it Frontend
+### A simple multiplayer card game!
 
-####install
-#####npm install
-#####npm run jspm install
+## Install
+```bash
+npm install
+```
 
+## Backend
 
-####tasks
-#####npm run watch 
-transpiller files from typescript to es5, convert the html templates to Incremental DOM javascript resource.
-#####npm i
-update npm and jspm files.
+https://github.com/andreldm/guessit-backend
 
-#### Browser Support
-
-![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | 
---- |
-only 7 ✔ |
-
-
-
-
+## Tasks
+```bash
+npm run watch   # transpile files from typescript to es5 using amd.
+npm build       # compile and bundle all project to folder public.
+```

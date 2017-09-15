@@ -1,0 +1,22 @@
+<template>
+	<require from="./assets/css/basic.css"/>
+	<require from="./assets/css/guessit.css"/>
+	<require from="../user-dash-board/assets/user-dash-board.css"/>
+	<require from="ferrugemjs-router as rt" type="namespace"/>
+	<require from="../info-bar/info-bar"/>
+	<require from="../dash-card/dash-card"/>
+	<require from="../thumbnail-card/thumbnail-card"/>
+	<div>
+		<info-bar/>		
+		<thumbnail-card/>
+		<div class="${'user-dash-board'}">
+			<dash-card/>
+		</div>
+		<rt:router-view style-name="modals" hashbang="true">
+			<route path="/" redirect="/index.html"/>	
+			<route path="/player-config/:playerName" view-model="player/player-config"/>
+			<route path="/players-score" view-model="player/players-score"/>
+			<route path="/bets-panel" view-model="bets-panel/bets-panel"/>
+		</rt:router-view>
+	</div>
+</template>

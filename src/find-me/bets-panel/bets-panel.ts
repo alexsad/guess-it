@@ -1,15 +1,10 @@
-import betsStore from "./bets-panel-store";
+import betsStore from "../stores/bets-panel-store";
 import {IBet} from "../interfaces/i-bet";
 
 export class BetsPanel{
-	private visible:boolean;
+	private hidden:boolean;
+	private refresh:Function;
 	constructor(){
-	}
-	attached():void{
-		betsStore.onChange.subscribe(()=>{
-			this.visible = true;
-			(<any>this).refresh();
-		});
 	}
 	private get bets():IBet[]{
 		return betsStore.get();

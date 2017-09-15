@@ -1,31 +1,30 @@
-import playerStore from "../player/player-store";
+import playerStore from "../stores/player-store";
 import {IPlayer} from "../interfaces/i-player";
-import playerDispatch from "../player/player-dispatch";
+import {playerChange} from "../actions/player";
 import playerInfo from "../player/player-info";
+import {IEventSubscribe} from "event-emitter-lite";
 
 export class InfoBar{
-	private playerWinner:IPlayer;
+	private refresh:Function;
+	private subs:IEventSubscribe[];
 	constructor(){
-		playerDispatch.playerChange.subscribe((player)=>{
-			(<any>this).refresh();
-		});
-		playerDispatch.playerWinner.subscribe((playerWinner)=>{
-			this.playerWinner = playerWinner;
-			(<any>this).refresh();
-		});
+		this.subs = [];
 	}
-	get players(): IPlayer[] {
+	private connectedCallback(){
+		this.subs.push(
+			playerChange.subscribe( player => {
+				this.refresh();
+			})
+		);	
+	}
+	private disconnectedCallback(){
+		this.subs.forEach(sub => sub.cancel());
+		this.subs.length = 0;
+	}
+	private get players(): IPlayer[] {
 		return playerStore.get();
 	}
-	get player():IPlayer{
+	private get player():IPlayer{
 		return playerInfo.player;
-	}
-	changePlayerName(name:string):void{
-		if(name){
-			let tmpplayer:IPlayer = this.player;
-			tmpplayer.name = name;
-			playerInfo.player = tmpplayer;
-		}
-		(<any>this).refresh();
 	}
 }

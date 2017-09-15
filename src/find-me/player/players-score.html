@@ -1,0 +1,46 @@
+<template>
+	<style>
+		.players-list .play-info{
+			margin:4px;
+			font-size: 15px;
+			min-width:120px;
+			padding-left:4px;
+		}
+
+		.players-list  .play-info i{
+			float:left;
+			margin:0px 5px 0px 0px;
+		}
+
+		.players-list .play-info span{
+			margin-top:5px;
+			text-align:center;
+			font-weight: bolder;
+		}
+	</style>
+	<div>		
+		<div if="!this.hidden" class="players-list popup-options">
+			<h2>
+				<span class="close-popup" click.trigger="this.refresh({hidden:true})">X</span>
+			</h2>
+			<if condition="this.playerWinner">
+				<h1>Fim de Jogo!</h1>			
+				<h2 style="float: none;">
+					<span style="margin-top: 8px; margin-left: 20px;">O vencedor é ${this.playerWinner.name}</span>
+					<i class="icon-rat player-score-thumbnail" style="${'float:left;marginTop:0px;color:'+this.playerWinner.color}"></i>
+				</h2>
+			</if>
+			<div 
+				each="play in this.players" 
+				title="${play.name}" 
+				class="play-info"
+				>
+				<i class="${'player-score-thumbnail '+(play.status===0||play.status===4?'icon-rat':'icon-radom-cards')}" style="${'color:'+play.color}"></i>
+				<span>
+					${play.score} - ${play.name} 
+				</span>
+			</div>	
+		</div>
+		<div if="!this.hidden" click.trigger="this.refresh({hidden:true})" class="block-content-info"></div>
+	</div>
+</template>

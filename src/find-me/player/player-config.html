@@ -1,0 +1,48 @@
+<template>
+	<style>
+		.player-config-popup i{
+			font-size:28px;
+			margin:4px;
+		}
+		.player-config-popup label{
+			font-size:28px;
+
+		}
+		.player-config-popup input{
+			width:96%;
+			margin-left:2%;
+			height:35px;
+			border:1px solid #128A7A;
+			border-radius:4px;
+			color:#128A7A;
+			font-size:28px;
+
+		}
+		.player-config-popup button{
+			height:35px;
+			width:60px;
+			border:1px solid #128A7A;
+			border-radius:4px;
+			color:#FFFFFF;
+			background-color:#128A7A;
+			float:right;
+			margin-right:2%;
+			margin-top:10px;
+		}
+	</style>
+	<div>
+		<div 
+			if="!this.hidden"
+			class="popup-options player-config-popup"
+			>
+			<h2>
+				<span if="this.closeable" class="close-popup" click.trigger="this.refresh({hidden:true})">X</span>
+			</h2>
+			<i class="icon-rat"></i>
+			<label>Nome:</label>
+			<input type="text" placeholder="Digite o seu apelidio" value="${this.playerName}" change.bind="this.playerName">
+			<button click.trigger="this.save">OK</button>	
+		</div>
+		<div if="!this.hidden" click.trigger="this.hide" class="block-content-info"></div>
+	</div>
+</template>
