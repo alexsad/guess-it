@@ -7,7 +7,7 @@
     "copy:interfaces": "copyfiles ../interfaces/*.ts src/interfaces",
     "copy:index": "copyfiles ./index.html public",
     "watch": "webpack-dev-server --progress --colors --config webpack.config.js",
-    "w:home": "webpack-dev-server --progress --colors --config webpack.config.js --host 192.168.0.100:3000",
+    "w:home": "webpack-dev-server --progress --colors --config webpack.config.js --host 192.168.0.105:9000",
     "build": "npm run copy:index && webpack --config webpack.config.js --optimize-minimize"
   },
   "author": "ferrugemjs",
@@ -15,8 +15,8 @@
   "dependencies": {
     "es6-shim": "^0.35.3",
     "event-emitter-lite": "^1.1.0",
-    "ferrugemjs": "^0.19.0",
-    "ferrugemjs-router": "^0.17.0",
+    "ferrugemjs": "^0.21.0",
+    "ferrugemjs-router": "^0.21.0",
     "js-cookie": "^2.1.4",
     "moment": "^2.18.1",
     "socket.io-client": "^2.0.3",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "copyfiles": "^1.2.0",
     "css-loader": "^0.28.4",
-    "ferrugemjs-loader": "^0.17.0",
+    "ferrugemjs-loader": "^0.21.0",
     "file-loader": "^0.11.2",
     "http-proxy-middleware": "^0.17.4",
     "style-loader": "^0.18.2",
