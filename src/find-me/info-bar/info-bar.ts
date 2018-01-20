@@ -1,8 +1,8 @@
-import playerStore from "../stores/player-store";
-import {IPlayer} from "../interfaces/i-player";
-import {playerChange} from "../actions/player";
-import playerInfo from "../player/player-info";
-import {IEventSubscribe} from "event-emitter-lite";
+import playerStore from '../stores/player-store';
+import {IPlayer} from '../interfaces/i-player';
+import {playerChange} from '../actions/player';
+import playerInfo from '../player/player-info';
+import {IEventSubscribe} from 'event-emitter-lite';
 
 export class InfoBar{
 	private refresh:Function;

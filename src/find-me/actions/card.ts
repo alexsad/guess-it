@@ -1,5 +1,5 @@
-import {EventEmitter} from "event-emitter-lite";
-import {ICard} from "../interfaces/i-card";
+import {EventEmitter} from 'event-emitter-lite';
+import {ICard} from '../interfaces/i-card';
 
 export const changeCard = new EventEmitter<ICard>();
 export const submitCard = new EventEmitter<ICard>();

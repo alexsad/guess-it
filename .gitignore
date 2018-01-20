@@ -42,3 +42,4 @@ public
 
 #.npmrc
 .npmrc
+package-lock.json
