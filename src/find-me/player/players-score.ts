@@ -1,8 +1,8 @@
-import playerStore from "../stores/player-store";
-import {IPlayer} from "../interfaces/i-player";
-import {playerChange,playerWinner} from "../actions/player";
-import playerInfo from "./player-info";
-import {IEventSubscribe} from "event-emitter-lite";
+import playerStore from '../stores/player-store';
+import {IPlayer} from '../interfaces/i-player';
+import {playerChange,playerWinner} from '../actions/player';
+import playerInfo from './player-info';
+import {IEventSubscribe} from 'event-emitter-lite';
 
 export class PlayersScore{
 	private playerWinner:IPlayer;

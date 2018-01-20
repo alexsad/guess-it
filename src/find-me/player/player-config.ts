@@ -1,6 +1,6 @@
-import {IPlayer} from "../interfaces/i-player";
-import {IEventSubscribe} from "event-emitter-lite";
-import {requestPlayerName} from "../actions/player";
+import {IPlayer} from '../interfaces/i-player';
+import {IEventSubscribe} from 'event-emitter-lite';
+import {requestPlayerName} from '../actions/player';
 
 export class PlayerConfig{
 	private playerName:string;

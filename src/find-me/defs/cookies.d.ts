@@ -1,22 +1,22 @@
-interface CookieOptions {
-    path?: string;
-    domain?: string;
-    expires?: any;
-    secure?: boolean;
+interface ICookieOptions {
+	path?: string;
+	domain?: string;
+	expires?: any;
+	secure?: boolean;
 }
 
-interface CookiesStatic {
-    (key:string, value?:any, options?:CookieOptions): any;
+interface ICookiesStatic {
+	(key:string, value?:any, options?:ICookieOptions): any;
 
-    get(key:string): string;
-    set(key:string, value:any, options?:CookieOptions): CookiesStatic;
-    expire(key:string, options?:CookieOptions): CookiesStatic;
+	get(key:string): string;
+	set(key:string, value:any, options?:ICookieOptions): ICookiesStatic;
+	expire(key:string, options?:ICookieOptions): ICookiesStatic;
 
-    defaults: CookieOptions;
-    enabled: boolean;
+	defaults: ICookieOptions;
+	enabled: boolean;
 }
 
 declare module 'js-cookie' {
-    var Cookies: CookiesStatic;
-    export = Cookies;    
+	var Cookies: ICookiesStatic;
+	export = Cookies;    
 }

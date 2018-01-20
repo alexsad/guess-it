@@ -1,6 +1,6 @@
-import {ICard} from "../interfaces/i-card";
-import {discardCard,changeCard} from "../actions/card";
-import dashCardStore from "../stores/dash-card-store";
+import {ICard} from '../interfaces/i-card';
+import {discardCard,changeCard} from '../actions/card';
+import dashCardStore from '../stores/dash-card-store';
 
 export class ThumbnailCard{
 	private lastPickedCard:number;

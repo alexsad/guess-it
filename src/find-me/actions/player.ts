@@ -1,5 +1,5 @@
-import {EventEmitter} from "event-emitter-lite";
-import {IPlayer} from "../interfaces/i-player";
+import {EventEmitter} from 'event-emitter-lite';
+import {IPlayer} from '../interfaces/i-player';
 
 export const requestPlayerName = new EventEmitter<string>();
 export const joinPlayer = new EventEmitter<IPlayer>();

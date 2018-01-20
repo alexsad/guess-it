@@ -1,4 +1,4 @@
-import io = require("socket.io-client");
+import io = require('socket.io-client');
 
 interface ISocket {
 	emit: (sign: string, ...value:any[]) => void;
