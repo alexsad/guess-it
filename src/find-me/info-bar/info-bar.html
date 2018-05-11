@@ -1,20 +1,28 @@
 <template>
-	<require from="./assets/info-bar.css"/>
-	<require from="../player/player-info as player_info" type="script"/>
+	<require from="./assets/info-bar.scss"/>
 	<require from="ferrugemjs-router as rt" type="namespace"/>
+	<require from="v3rtigo as v3r" type="namespace"/>
+	<require from="@/stores/player as playerStore" type="script"/>
 	<div class="info-bar">
-		<a href="/players-score" style="float:right">
-			<i class="icon-users-group btn-show-players"></i>
+		<a href="/host-info" class="pull-right">
+			<i class="guessit-qrcode btn-show-players" style="font-size:24px; margin-top:19px"></i>
+		</a>
+		<a href="/players-score" class="pull-right">
+			<i class="guessit-users btn-show-players"></i>
 			<div class="players-count">${this.players.length}</div>
 		</a>
-		<a href="${'/player-config/'+player_info.default.player.name}" style="float:right">
-			<i class="icon-rat player-score-thumbnail"></i>
-			<div class="players-count">${this.player.score}</div>			
+		<a href="${'/player-config/'+this.player.name}" class="pull-right">
+			<i class="guessit-rat player-score-thumbnail"></i>
+			<div class="players-count">${this.player.score} </div>			
 		</a>
 		<rt:router-redirect 
-			if="!player_info.default.player.name"
+			if="!this.player.name"
 			path="${'/player-config/player_'+new Date().getTime()}"
 			timeout="200"
 		/>
+		<v3r:connect-provider
+			store="${playerStore.default}"
+			event.handler="this.refresh"
+	  	/>
 	</div>
 </template>

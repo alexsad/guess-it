@@ -1,0 +1,19 @@
+.players-list{
+    > .content{    
+        > .play-info{
+            margin:4px;
+            font-size: 15px;
+            min-width:120px;
+            padding-left:4px;
+
+            > i.player-score-thumbnail{
+                margin:0px 5px 0px 0px;
+                font-size: 25px;
+            }
+            > span{
+                text-align:center;
+                vertical-align: super;
+            }
+        }
+    }
+}

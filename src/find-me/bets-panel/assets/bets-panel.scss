@@ -1,0 +1,46 @@
+.bet-box{
+	width: 100%;
+	display:flex;
+	align-items: stretch;
+	padding: 5px;
+	box-sizing: border-box;
+
+	> .user-section{
+		flex:0;
+		> .thumbnail-card{
+			width: 75px;
+		}
+		> .player-name{
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 75px;
+			display: block;
+		}
+	}
+	> .voters {
+		flex:1;
+		padding: 10px;
+		padding-top: 21px;
+
+		> .voter{
+			display: inline-block;
+			border-radius: 5px;
+			border: 1px solid #2e2f39;
+			padding: 5px;
+			padding: 4px 4px 0px 4px;
+			margin: 2px;
+
+			> i{
+				font-size: 18px;
+				font-weight: normal;
+				margin:0px 5px 0px 5px;
+				vertical-align: middle;
+			}
+			> span{
+				font-size: 18px;
+				font-weight: normal;
+			}
+		}
+	}
+}

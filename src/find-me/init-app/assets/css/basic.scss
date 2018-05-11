@@ -1,0 +1,97 @@
+body,html{
+	width:100%;
+	height:100%;
+}
+*{
+	margin:0px;
+	padding: 0px;
+}
+body{
+	color : #128A7A;
+	font-size:14px;  	
+	background-image: url("../../../user-dash-board/assets/img/k-bigpic-min.jpg");
+	background-position:center 70px;
+	background-repeat:repeat;
+	background-size:100%;
+	background-color: #ffffff;	
+	border-radius:4px;
+	font-family: comic;
+	font-weight: normal;
+
+	> div{
+		min-height:100%;
+		width: 100%;
+		-webkit-box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
+		-moz-box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
+		box-shadow: inset 0px 1px 8px 0px rgba(36,36,36,0.53);
+		padding-bottom:10px;
+	}
+}
+
+.pull-left{
+	float:left;
+}
+.pull-right{
+	float:right;
+}
+.full{
+	width: 100%;
+}
+.horizontal-centred{
+	margin: 0px auto;
+	width: 100%;
+}
+.init-app-tag{
+	height:100%;
+}
+
+.popup-options{
+	position:fixed;
+	top:0;
+	right:0;
+	bottom: 0;
+	width:70%;
+	background-color:#f1f2f5;	
+	border-left:1px solid #e5e6ea;
+	z-index:40;
+	color: #2e2f39;
+	box-sizing: content-box;
+	
+	> .header{
+		display:block;
+		border-bottom:1px solid #cfd6e6;
+		padding: 10px;
+		background-color: #ffffff;
+
+		> .title {
+			font-size: 16px;			
+			margin-bottom: 10px;
+		}
+		> .close-popup{
+			float:right;
+			width:10px;
+			height:10px;
+			margin-right:10px;
+		}
+	}
+	> .content, > .footer{
+		margin:5px;
+		
+	}
+	> .content{
+		padding: 10px;
+		background-color: #fbfbfc;
+		border: 1px solid #cfd6e6;
+		border-radius: 3px;
+	}
+}
+
+.block-content-info{
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	position: fixed;
+	background-color: rgba(17, 29, 16, 0.7);
+}
+

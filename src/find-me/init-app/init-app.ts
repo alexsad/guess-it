@@ -1,21 +1,49 @@
-import playerInfo from '../player/player-info';
-import socket from '../web-socket/web-socket';
-import betsStore from '../stores/bets-panel-store';
+import socket from '@/web-socket/web-socket';
+import betsStore from '@/stores/bets-panel';
 import router from 'ferrugemjs-router';
+import playerStore from '@/stores/player';
+import playersStore from '@/stores/players';
+import { IPlayer } from '@/interfaces/i-player';
+import { EPlayerStatus } from '@/interfaces/e-player';
+
 export class MainApp{
-	constructor(){}
-	private connectedCallback(){
-		playerInfo.join();
-		window.onfocus = () => {
-			if (!socket.connected) {
-				playerInfo.join();
-			}			
-		};
-		betsStore.onChange.subscribe(() => {
+	private attached(){
+		playerStore
+			.discoveryPlayer()
+			.then(this.playerLoggedHandler)
+			.catch(err => {
+				let unsub = playerStore.subscribe('state:changed',() => {
+					let tmpPlayer = playerStore.getState();
+					if(tmpPlayer.status === EPlayerStatus.WAITING){
+						unsub();
+						this.playerLoggedHandler(tmpPlayer);
+					}
+				});		
+				router({
+					path:`/player-config/${playerStore.getState().name}`
+					,timeout:700
+				});
+			});
+	}
+	private playerLoggedHandler(player:IPlayer){
+		playerStore.subscribe('setWinner',({winner}:{ winner:IPlayer} ) => {
+			console.dir({winner});
 			router({
-				path:'/bets-panel'
-				,timeout:1000
+				path:`/players-score-winner/${winner.id}`
+				,timeout:800
 			});
 		});
+		playersStore.join(player);
+		betsStore.subscribe('state:changed',() => {
+			router({
+				path:'/bets-panel'
+				,timeout:800
+			});
+		});
+		window.onfocus = () => {
+			if (!socket.connected) {
+				playersStore.join(player);
+			}
+		};
 	}
 }

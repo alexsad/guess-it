@@ -1,0 +1,18 @@
+<template no-model>
+	<require from="./qr-code as gen-code" />
+	<div>
+		<div if="!this.hidden" class="popup-options player-config-popup">
+			<div class="header">
+				<label class="title">Endereço do serviço</label>
+				<span class="close-popup" click.trigger="this.refresh({hidden:true})">&times;</span>
+			</div>
+			<div class="content">
+				<gen-code text="${'http://'+window.location.host}" />
+			</div>
+			<div class="footer">
+				<button click.trigger="this.refresh({hidden:true})">OK</button>
+			</div>
+		</div>
+		<div if="!this.hidden" click.trigger="this.refresh({hidden:true})" class="block-content-info"></div>
+	</div>
+</template>

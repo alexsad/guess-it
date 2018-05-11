@@ -1,0 +1,25 @@
+<template no-model>
+	<require from="qrcode as _qrcod" type="script"/>
+	<style type="text/css">
+		.box-qrcode > canvas{
+			display: block;
+		}
+	</style>
+	<div>
+		<script type="text/javascript">
+			this.canvas_uid_ = "uid_"+new Date().getTime()+"_qrcod";
+		</script>
+		<div class="box-qrcode">
+			<canvas id="${this.canvas_uid_}" class="horizontal-centred"></canvas>
+		</div>
+		<script type="text/javascript">
+			var qrcode_canvas = document.getElementById(this.canvas_uid_);
+			var text = this.text || 'sample text';
+			_qrcod.toCanvas(qrcode_canvas, text, {scale:8} , function (error) {
+  				if (error){
+  					console.error(error);
+  				} 				
+			});
+		</script>
+	</div>
+</template>

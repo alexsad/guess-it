@@ -1,11 +1,11 @@
 <template>
-	<require from="./assets/thumbnail-card.css"/>
+	<require from="v3rtigo as v3r" type="namespace" />
+	<require from="@/stores/dash-card as dashCardStore" type="script" />
+	<require from="./assets/thumbnail-card.scss" />
 	<div class="thumbnail-card">
-		<img 
-			each="thumbnail in this.dashCardStore"
-			class="${'img-card'}"
-			src="${thumbnail.url}"
-			click.trigger="this.changeCard(thumbnail.id)"
+		<img each="thumbnail in this.dashCards" class="${'img-card'}" src="${thumbnail.url}" click.trigger="this.changeCard(thumbnail.id)"
 		/>
+		<v3r:connect-provider store="${dashCardStore.default}" event.handler="this.refresh" />
+		<v3r:connect-provider store="${dashCardStore.default}" event-type="card:discarded" event.handler="this.discardCardHandler" />
 	</div>
 </template>

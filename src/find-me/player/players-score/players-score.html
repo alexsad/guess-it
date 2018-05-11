@@ -1,0 +1,31 @@
+<template>
+	<require from="./players-score.scss"/>
+	<div>		
+		<div if="!this.hidden" class="players-list popup-options">
+			<span class="header">
+				<span class="title">Participantes</span>
+				<span class="close-popup" click.trigger="this.refresh({hidden:true})">&times;</span>
+			</span>
+			<if condition="this.winner">
+				<h1>Fim de Jogo!</h1>			
+				<h2 style="float: none;">
+					<span style="margin-top: 8px; margin-left: 20px;">O vencedor é ${this.winner.name}</span>
+					<i class="guessit-rat player-score-thumbnail" style="${'float:left;marginTop:0px;color:'+this.winner.color}"></i>
+				</h2>
+			</if>
+			<div class="content">
+				<div 
+				each="play in this.players" 
+				title="${play.name}" 
+				class="play-info"
+				>
+					<i class="${'player-score-thumbnail '+(play.status===0||play.status===4?'guessit-rat':'guessit-cards')}" style="${'color:'+play.color}"></i>
+					<span>
+						${play.score} - ${play.name} 
+					</span>
+				</div>
+			</div>	
+		</div>
+		<div if="!this.hidden" click.trigger="this.refresh({hidden:true})" class="block-content-info"></div>
+	</div>
+</template>

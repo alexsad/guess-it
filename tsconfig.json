@@ -6,7 +6,7 @@
         ,"outDir": "./public"
         ,"experimentalDecorators": true
         ,"noImplicitAny":true		
-        ,"sourceMap": false        
+        ,"sourceMap": true        
 		,"declaration": false
 		,"removeComments":true
 		,"noEmitHelpers":true 
@@ -15,14 +15,16 @@
         ,"baseUrl": "./"
         ,"lib": ["dom", "es6"]
         ,"paths": {
-            "tslib" : ["node_modules/tslib/tslib.d.ts"]
-            ,"event-emitter-lite":["node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"]
-            ,"moment":["node_modules/moment/moment.d.ts"]
+            "@/*" : ["src/find-me/*"],
+            "tslib" : ["node_modules/tslib/tslib.d.ts"],
+            "ferrugemjs" : ["node_modules/ferrugemjs/dist/core/index.d.ts"],
+            "v3rtigo" : ["node_modules/v3rtigo/dist/index.d.ts"]
         }
     },
     "exclude": [
         "node_modules"
 		,"dist"
+        ,"public"
     ],
     "compileOnSave": false
 }

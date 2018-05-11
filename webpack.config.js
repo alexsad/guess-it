@@ -1,7 +1,7 @@
 let path = require('path');
 let packageJson = require('./package.json');
 let vendors = Object.keys(packageJson.dependencies);
-let polyfills = ['es6-shim','whatwg-fetch','tslib'];
+let polyfills = ['es6-shim/es6-shim.min','whatwg-fetch','tslib'];
 
 polyfills.forEach(polyKey => {
     let indx = vendors.indexOf(polyKey);
@@ -11,6 +11,7 @@ polyfills.forEach(polyKey => {
 });
 
 module.exports = {
+	mode:'development',
     entry: {
     	polyfills,
     	app:['./src/find-me/main/main.ts']
@@ -34,8 +35,9 @@ module.exports = {
 		  }
 		}
     },
+    devtool: 'source-map',
 	module: {
-        loaders: [
+        rules: [
 			{
                 test: /\.ts$/,
                 enforce: 'pre',
@@ -64,14 +66,9 @@ module.exports = {
 	resolve: {
 		extensions: [".js",".ts",".html"]
 		,alias:{    		
-			"apps":path.resolve(__dirname, './src/find-me')
+			"@":path.resolve(__dirname, './src/find-me')
 			,"ui":path.resolve(__dirname, './src/ui')
-			,"root_app":path.resolve(__dirname, './src/find-me')
-			,"ferrugemjs":"ferrugemjs/dist/core"
-			,"ferrugemjs-router":"ferrugemjs-router/dist/router"
-			,"bootstrap":"bootstrap/dist"
-			,"bootstrap-datepicker":"bootstrap-datepicker/dist"
-			,"selectize":"selectize/dist"
+            ,"incremental-dom":"incremental-dom/dist/incremental-dom-min"
 		}    
 	}
 }

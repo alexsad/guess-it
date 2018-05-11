@@ -1,22 +1,26 @@
 <template>
-	<require from="./assets/css/basic.css"/>
+	<require from="./assets/css/basic.scss"/>
 	<require from="./assets/css/guessit.css"/>
-	<require from="../user-dash-board/assets/user-dash-board.css"/>
+	<require from="@/user-dash-board/assets/user-dash-board.scss"/>
 	<require from="ferrugemjs-router as rt" type="namespace"/>
-	<require from="../info-bar/info-bar"/>
-	<require from="../dash-card/dash-card"/>
-	<require from="../thumbnail-card/thumbnail-card"/>
-	<div>
-		<info-bar/>		
-		<thumbnail-card/>
-		<div class="${'user-dash-board'}">
-			<dash-card/>
+	<require from="@/info-bar/info-bar"/>
+	<require from="@/dash-card/dash-card"/>
+	<require from="@/thumbnail-card/thumbnail-card"/>
+	<div class="init-app">
+		<info-bar/>
+		<div class="main-card-board horizontal-centred" style="display: inline-flex;">			
+			<thumbnail-card/>
+			<div class="${'user-dash-board'}">
+				<dash-card/>
+			</div>
 		</div>
 		<rt:router-view style-name="modals" hashbang="true">
-			<route path="/" redirect="/index.html"/>	
-			<route path="/player-config/:playerName" view="player/player-config"/>
-			<route path="/players-score" view="player/players-score"/>
+			<route path="/" redirect="/index.html"/>
+			<route path="/player-config/:playerName" view="player/player-config/player-config"/>
+			<route path="/players-score" view="player/players-score/players-score"/>
+			<route path="/players-score-winner/:playerWinnerId" view="player/players-score/players-score"/>
 			<route path="/bets-panel" view="bets-panel/bets-panel"/>
+			<route path="/host-info" view="host-info/host-info"/>
 		</rt:router-view>
 	</div>
 </template>

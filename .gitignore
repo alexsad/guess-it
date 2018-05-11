@@ -43,3 +43,6 @@ public
 #.npmrc
 .npmrc
 package-lock.json
+
+# Stats
+stats.json

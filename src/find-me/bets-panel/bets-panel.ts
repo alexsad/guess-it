@@ -1,5 +1,5 @@
-import betsStore from '../stores/bets-panel-store';
-import {IBet} from '../interfaces/i-bet';
+import betsStore from '@/stores/bets-panel';
+import {IBet} from '@/interfaces/i-bet';
 
 export class BetsPanel{
 	private hidden:boolean;
@@ -7,6 +7,6 @@ export class BetsPanel{
 	constructor(){
 	}
 	private get bets():IBet[]{
-		return betsStore.get();
+		return betsStore.getState();
 	}
 }
