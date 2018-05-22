@@ -1,20 +1,30 @@
 .ui-loading-bar{
-	height: 2px;
-	width: 100%;
 	background-color:transparent;
-    overflow: hidden;
+    display: block;
+	margin:10px auto;
+	width:90px;
     > .ui-bar{
-        height:100%;
-        width: 0%;			
-        margin-left: 0%;
-        opacity: 0;
-        &.is-loading{
-            opacity: 1;
-            animation: ui-loading-bar-anim 3s infinite;
+        > i {
+
+            width: 45px;
+            height: 45px;
+            display: inline-block;
+            background: rgb(18,138,122);
+            border-radius: 50%;
+
+            &:nth-child(1){
+                animation:ui-cssload-loading-ani1 1.15s ease-in-out infinite;            
+            }
+            &:nth-child(2){
+                background: rgb(138,44,18);
+                margin-left: -9px;
+                animation:ui-cssload-loading-ani1 1.15s ease-in-out 0.58s infinite;
+            }
         }
     }
 }
-@keyframes ui-loading-bar-anim {
-	from {margin-left: 0%;width: 0%;}
-	to {margin-left: 100%;width: 50%;}
+@keyframes ui-cssload-loading-ani1{
+	70%{
+		transform:scale(0.5);
+	}
 }

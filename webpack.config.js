@@ -59,7 +59,7 @@ module.exports = {
             }
             ,{
     			test: /\.(d\.ts|eot|woff|woff2|ttf|svg|png|jpg|less)$/,
-   				loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
+   				loader: 'url-loader?limit=1&name=assets/[name].[ext]'
 			}
 		]
     },

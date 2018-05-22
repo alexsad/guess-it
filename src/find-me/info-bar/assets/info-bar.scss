@@ -3,9 +3,15 @@
 	height:70px;
 	margin-bottom:4px;
 	background-color: #128A7A;
-	background-image: url("./guessit-logo-min.png");
+
+	background-image: url("./guessit-only-logo-min.png");
+	
 	background-repeat: no-repeat;
 	background-position:5px center;
+
+	@media screen and (min-width: 500px) {
+		background-image: url("./guessit-logo-min.png");
+	}
 	
 	> a {
 		> .players-count{

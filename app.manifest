@@ -1,0 +1,13 @@
+{
+    "name": "Guessit",
+    "start_url" : "./",
+    "display": "standalone",
+    "orientation":"portrait",
+    "icons": [
+        {
+            "src": "assets/guessit-only-logo-min.png",
+            "sizes" : "250x250",
+            "type" : "image/png"
+        }
+    ]
+}

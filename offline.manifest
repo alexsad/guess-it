@@ -1,0 +1,23 @@
+CACHE MANIFEST
+
+#v1
+
+CACHE:
+0-bundle.js
+1-bundle.js
+app-bundle.js
+polyfills-bundle.js
+assets/account-min.png
+assets/guessit.eot
+assets/guessit-only-logo-min.png
+assets/guessit.woff
+assets/lite-rat.png
+assets/guessit-logo-min.png
+assets/guessit.svg
+assets/k-bigpic-min.jpg
+assets/guessit-logo.png
+assets/guessit.ttf
+assets/lite-rat-min.png
+
+NETWORK:
+*

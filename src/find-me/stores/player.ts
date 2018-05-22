@@ -44,7 +44,7 @@ class PlayerStore extends Store<IPlayer>{
 			tmpPlay.id = id;
 		}
 		Cookies.set('player-name', name);
-		if (name !== tmpPlay.name) {
+		if (name) {
 			tmpPlay.name = name;
 			socket.emit('rename-player', tmpPlay.id, tmpPlay.name);
 		}

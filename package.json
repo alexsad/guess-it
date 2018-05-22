@@ -5,10 +5,10 @@
   "main": false,
   "scripts": {
     "copy:interfaces": "copyfiles ../interfaces/*.ts src/interfaces",
-    "copy:index": "copyfiles ./index.html public",
+    "copy:static": "copyfiles ./index.html ./offline.manifest ./app.manifest public",
     "watch": "webpack-dev-server --progress --colors --config webpack.config.js",
     "w:home": "webpack-dev-server --progress --colors --config webpack.config.js --host 192.168.1.106",
-    "build": "npm run copy:index && npm run copy:interfaces && webpack -p --config webpack.config.js",
+    "build": "npm run copy:static && npm run copy:interfaces && webpack -p --config webpack.config.js",
     "bundle:analyzer": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json"
   },
   "author": "ferrugemjs",
@@ -22,7 +22,7 @@
     "qrcode": "^1.2.0",
     "socket.io-client": "^2.1.0",
     "tslib": "^1.9.0",
-    "v3rtigo": "*",
+    "v3rtigo": "^0.4.1",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
